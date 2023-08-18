@@ -9,6 +9,8 @@ import ListItemText from '@mui/material/ListItemText';
 function App() {
     const [blogInfo, setBlogInfo] = useState({})
     const [loading, setLoading] = useState(false)
+    
+    useEffect(() => { document.title = "Adkimsm Blog" })
 
     useEffect(() => { 
         document.location.href.toString().test(/localhost/) ? null : document.domain = 'adki.site';

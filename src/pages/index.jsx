@@ -1,7 +1,10 @@
+import { useEffect } from 'react';
 import '../styles/App.css'
 import Typography from '@mui/material/Typography';
 
 function App() {
+    useEffect(() => { document.title = "Adkimsm Home" })
+
     return (
         <>
             <h1 style={{display: 'none'}}>Adkimsm</h1>
