@@ -11,7 +11,7 @@ function App() {
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        //document.domain = 'adki.site'
+        document.domain = 'adki.site'
         fetch('https://blog.adki.site/content.json')
             .then(res => res.json())
             .then(res => {
