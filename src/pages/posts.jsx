@@ -5,6 +5,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import Skeleton from '@mui/material/Skeleton';
 
 function App() {
     const [blogInfo, setBlogInfo] = useState({})
@@ -26,12 +27,12 @@ function App() {
         console.log(blogInfo)
     }, [blogInfo])
 
-    return (loading ?
+    return (
         <Box>
             <nav aria-label="main mailbox folders">
                 <List>
                     {
-                        blogInfo.posts?.map((post, key) => {
+                       loading ? blogInfo.posts?.map((post, key) => {
                             return <Link href={blogInfo.meta.url + blogInfo.meta.root + post.path} underline="none" key={key}>
                                 <ListItem disablePadding>
                                     <ListItemButton>
@@ -39,11 +40,11 @@ function App() {
                                     </ListItemButton>
                                 </ListItem>
                             </Link>
-                        })
+                        }) : <h1><Skeleton variant="rectangular" /></h1>
                     }
                 </List>
             </nav>
-        </Box> : <h1>Loading......</h1>
+        </Box>
     )
 }
 

@@ -5,7 +5,9 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import './index.css'
-import themeObject from './ThemeMUI.json'
+import CssBaseline from '@mui/material/CssBaseline';
+//import themeObject from './ThemeMUI.json'
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Suspense } from 'react'
 import {
@@ -17,22 +19,30 @@ import routes from '~react-pages'
 import Layout from './pages/_layout'
 
 const AppC = () => {
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+
+  const theme = createTheme({
+        palette: {
+          mode: prefersDarkMode ? 'dark' : 'light',
+        },
+      })
   return (
-    <Suspense fallback={<p>Loading...</p>}>
-      {useRoutes(routes)}
-    </Suspense>
+    <ThemeProvider theme={theme}>
+    <CssBaseline />
+      <Suspense fallback={<p>Loading...</p>}>
+        {useRoutes(routes)}
+      </Suspense>
+    </ThemeProvider>
   )
 }
 
-const theme = createTheme(themeObject);
+//const theme = createTheme(themeObject);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
-  <ThemeProvider theme={theme}>
     <React.StrictMode>
       <Layout />
       <AppC />
     </React.StrictMode>
-  </ThemeProvider>
   </Router>,
 )

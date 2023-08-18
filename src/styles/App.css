@@ -4,8 +4,35 @@
   padding: 2rem;
 }
 
-.card {
-  padding: 2em;
+.hSqPQ:before {
+  background-color: #dbeafe;
+  z-index: -1;
+  bottom: 0;
+  left: 0;
+  display: block;
+  position: absolute;
+  content: "";
+  right: 100%;
+  top: 50%;
+  border: 0 solid transparent;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.hSqPQ {
+  background-color: transparent;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  color: #1e40af;
 }
 
 
+@media (prefers-color-scheme: dark) {
+  .hSqPQ {
+    color: #bfdbfe;
+  }
+  .hSqPQ:before {
+    background-color: #1e3a8a;
+  }
+}
