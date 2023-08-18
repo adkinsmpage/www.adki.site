@@ -13,7 +13,7 @@ function App() {
     useEffect(() => { document.title = "Adkimsm Blog" })
 
     useEffect(() => { 
-        document.location.href.toString().test(/localhost/) ? null : document.domain = 'adki.site';
+        document.location.href.toString().search(/localhost/) === -1 ? null : document.domain = 'adki.site';
         fetch('https://blog.adki.site/content.json')
             .then(res => res.json())
             .then(res => {
