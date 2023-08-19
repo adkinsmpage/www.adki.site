@@ -16,6 +16,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import EditNoteIcon from '@mui/icons-material/EditNote';
+import { styled, alpha } from '@mui/material/styles';
+
+const BoxC = styled('div')(({ theme }) => ({
+    boxSizng: 'border-box',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    '&:hover': {
+        backgroundColor: alpha(theme.palette.common.white, 0.25)
+    },
+    margin: theme.spacing(1),
+    width: 'auto',
+}));
 
 const drawerWidth = 240;
 
@@ -33,24 +45,28 @@ function ResponsiveDrawer(props) {
             <Divider />
             <List>
                 <Link href="/" underline="none">
-                    <ListItem disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <HomeIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Home" />
-                        </ListItemButton>
-                    </ListItem>
+                    <BoxC>
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <HomeIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Home" />
+                            </ListItemButton>
+                        </ListItem>
+                    </BoxC>
                 </Link>
                 <Link href="/posts" underline="none">
-                    <ListItem disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                <EditNoteIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Posts" />
-                        </ListItemButton>
-                    </ListItem>
+                    <BoxC>
+                        <ListItem disablePadding>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <EditNoteIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Posts" />
+                            </ListItemButton>
+                        </ListItem>
+                    </BoxC>
                 </Link>
             </List>
         </div>
