@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.2.20"],\
             ["@types/react-dom", "npm:18.2.7"],\
             ["@vitejs/plugin-react", "virtual:9ddd64de16c8a9bafec41362e46390cc6ecb5fd739f1fbdab077cd944c3f47b6cfe2df51e2de087729f385cb64f91069ad5de0b79a1e5828aac8f8b8b87fbee4#npm:4.0.4"],\
+            ["dayjs", "npm:1.11.9"],\
             ["eslint", "npm:8.47.0"],\
             ["eslint-plugin-react", "virtual:9ddd64de16c8a9bafec41362e46390cc6ecb5fd739f1fbdab077cd944c3f47b6cfe2df51e2de087729f385cb64f91069ad5de0b79a1e5828aac8f8b8b87fbee4#npm:7.33.1"],\
             ["eslint-plugin-react-hooks", "virtual:9ddd64de16c8a9bafec41362e46390cc6ecb5fd739f1fbdab077cd944c3f47b6cfe2df51e2de087729f385cb64f91069ad5de0b79a1e5828aac8f8b8b87fbee4#npm:4.6.0"],\
@@ -1467,6 +1468,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:18.2.20"],\
             ["@types/react-dom", "npm:18.2.7"],\
             ["@vitejs/plugin-react", "virtual:9ddd64de16c8a9bafec41362e46390cc6ecb5fd739f1fbdab077cd944c3f47b6cfe2df51e2de087729f385cb64f91069ad5de0b79a1e5828aac8f8b8b87fbee4#npm:4.0.4"],\
+            ["dayjs", "npm:1.11.9"],\
             ["eslint", "npm:8.47.0"],\
             ["eslint-plugin-react", "virtual:9ddd64de16c8a9bafec41362e46390cc6ecb5fd739f1fbdab077cd944c3f47b6cfe2df51e2de087729f385cb64f91069ad5de0b79a1e5828aac8f8b8b87fbee4#npm:7.33.1"],\
             ["eslint-plugin-react-hooks", "virtual:9ddd64de16c8a9bafec41362e46390cc6ecb5fd739f1fbdab077cd944c3f47b6cfe2df51e2de087729f385cb64f91069ad5de0b79a1e5828aac8f8b8b87fbee4#npm:4.6.0"],\
@@ -1946,6 +1948,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/csstype-npm-3.1.2-cead7d99b2-e1a52e6c25.zip/node_modules/csstype/",\
           "packageDependencies": [\
             ["csstype", "npm:3.1.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["dayjs", [\
+        ["npm:1.11.9", {\
+          "packageLocation": "./.yarn/cache/dayjs-npm-1.11.9-c47d327b7c-a4844d83dc.zip/node_modules/dayjs/",\
+          "packageDependencies": [\
+            ["dayjs", "npm:1.11.9"]\
           ],\
           "linkType": "HARD"\
         }]\

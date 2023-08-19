@@ -1,19 +1,32 @@
 import { useState, useEffect } from 'react'
-import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
 import Skeleton from '@mui/material/Skeleton';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { styled, alpha } from '@mui/material/styles';
+import dayjs from 'dayjs'
+
+const BoxC = styled('div')(({ theme }) => ({
+    boxSizng: 'border-box',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: alpha(theme.palette.common.white, 0.15),
+    '&:hover': {
+        backgroundColor: alpha(theme.palette.common.white, 0.25)
+    },
+    margin: theme.spacing(1),
+    width: 'auto',
+}));
 
 function App() {
     const [blogInfo, setBlogInfo] = useState({})
     const [loading, setLoading] = useState(false)
-    
+
     useEffect(() => { document.title = "Adkimsm Blog" })
 
-    useEffect(() => { 
+    useEffect(() => {
         document.location.href.toString().search(/localhost/) !== -1 ? null : document.domain = 'adki.site';
         fetch('https://blog.adki.site/content.json')
             .then(res => res.json())
@@ -28,22 +41,32 @@ function App() {
     }, [blogInfo])
 
     return (
-        <Box>
-            <nav aria-label="main mailbox folders">
-                <List>
-                    {
-                       loading ? blogInfo.posts?.map((post, key) => {
-                            return <Link href={blogInfo.meta.url + blogInfo.meta.root + post.path} underline="none" key={key}>
-                                <ListItem disablePadding>
-                                    <ListItemButton>
-                                        <ListItemText primary={post.title} />
-                                    </ListItemButton>
-                                </ListItem>
-                            </Link>
-                        }) : <h1><Skeleton variant="rectangular" /></h1>
-                    }
-                </List>
-            </nav>
+        <Box sx={{padding: '2rem'}}>
+            {
+                loading ? blogInfo.posts?.map((post, key) => {
+                    return <BoxC key={key}>
+                        <Card variant="outlined">
+                            <CardContent>
+                                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                                    {dayjs(post.date).format("YYYY-MM-DD")}
+                                </Typography>
+                                <Typography variant="h5" component="div">
+                                    {post.title}
+                                </Typography>
+                                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                                    {post.categories[0].name}
+                                </Typography>
+                                <Typography variant="body2">
+                                    {post.excerpt}
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Button href={blogInfo.meta.url + blogInfo.meta.root + post.path} size="small">Learn More</Button>
+                            </CardActions>
+                        </Card>
+                    </BoxC>
+                }) : <h1><Skeleton variant="rectangular" /></h1>
+            }
         </Box>
     )
 }
