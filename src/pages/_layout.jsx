@@ -19,6 +19,7 @@ import EditNoteIcon from '@mui/icons-material/EditNote';
 import { styled, alpha } from '@mui/material/styles';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Slide from '@mui/material/Slide';
+import { Link as RouterLink } from 'react-router-dom';
 
 function HideOnScroll(props) {
     const { children, window } = props;
@@ -62,7 +63,7 @@ function ResponsiveDrawer(props) {
             <Toolbar />
             <Divider />
             <List>
-                <Link href="/" underline="none">
+                <Link component={RouterLink} to="/" underline="none">
                     <BoxC>
                         <ListItem disablePadding>
                             <ListItemButton>
@@ -74,7 +75,7 @@ function ResponsiveDrawer(props) {
                         </ListItem>
                     </BoxC>
                 </Link>
-                <Link href="/posts" underline="none">
+                <Link component={RouterLink} to="/posts" underline="none">
                     <BoxC>
                         <ListItem disablePadding>
                             <ListItemButton>
