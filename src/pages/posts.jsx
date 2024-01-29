@@ -31,7 +31,7 @@ function App() {
             </div>
             {loading ? <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
                 {blogInfo.posts.map((post, i) => (
-                    <article key={i} className="flex max-w-xl flex-col items-start justify-between">
+                    <article data-cursor="block" key={i} className="flex max-w-xl flex-col items-start justify-between">
                         <div className="flex items-center gap-x-4 text-xs">
                             <time dateTime={post.datetime} className="text-gray-500">
                                 {dayjs(post.date).format("YYYY-MM-DD")}

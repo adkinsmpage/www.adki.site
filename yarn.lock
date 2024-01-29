@@ -666,6 +666,7 @@ __metadata:
     "@vitejs/plugin-react": ^4.0.3
     autoprefixer: ^10.4.17
     dayjs: ^1.11.9
+    ipad-cursor: ^0.5.2
     postcss: ^8.4.33
     react: ^18.2.0
     react-dom: ^18.2.0
@@ -1771,6 +1772,13 @@ __metadata:
   version: 2.0.0
   resolution: "ip@npm:2.0.0"
   checksum: cfcfac6b873b701996d71ec82a7dd27ba92450afdb421e356f44044ed688df04567344c36cbacea7d01b1c39a4c732dc012570ebe9bebfb06f27314bca625349
+  languageName: node
+  linkType: hard
+
+"ipad-cursor@npm:^0.5.2":
+  version: 0.5.2
+  resolution: "ipad-cursor@npm:0.5.2"
+  checksum: 0236785d94c07507dd4e89abf0bb754efda39b0837511445e431f8ed21b559c138f2ad960b6fa959004d030b78b50cbd8582cbe891a5262389dc1da3624e856f
   languageName: node
   linkType: hard
 

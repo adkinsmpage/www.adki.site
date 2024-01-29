@@ -35,6 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vitejs/plugin-react", "virtual:9ddd64de16c8a9bafec41362e46390cc6ecb5fd739f1fbdab077cd944c3f47b6cfe2df51e2de087729f385cb64f91069ad5de0b79a1e5828aac8f8b8b87fbee4#npm:4.0.4"],\
             ["autoprefixer", "virtual:9ddd64de16c8a9bafec41362e46390cc6ecb5fd739f1fbdab077cd944c3f47b6cfe2df51e2de087729f385cb64f91069ad5de0b79a1e5828aac8f8b8b87fbee4#npm:10.4.17"],\
             ["dayjs", "npm:1.11.9"],\
+            ["ipad-cursor", "npm:0.5.2"],\
             ["postcss", "npm:8.4.33"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9ddd64de16c8a9bafec41362e46390cc6ecb5fd739f1fbdab077cd944c3f47b6cfe2df51e2de087729f385cb64f91069ad5de0b79a1e5828aac8f8b8b87fbee4#npm:18.2.0"],\
@@ -916,6 +917,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@vitejs/plugin-react", "virtual:9ddd64de16c8a9bafec41362e46390cc6ecb5fd739f1fbdab077cd944c3f47b6cfe2df51e2de087729f385cb64f91069ad5de0b79a1e5828aac8f8b8b87fbee4#npm:4.0.4"],\
             ["autoprefixer", "virtual:9ddd64de16c8a9bafec41362e46390cc6ecb5fd739f1fbdab077cd944c3f47b6cfe2df51e2de087729f385cb64f91069ad5de0b79a1e5828aac8f8b8b87fbee4#npm:10.4.17"],\
             ["dayjs", "npm:1.11.9"],\
+            ["ipad-cursor", "npm:0.5.2"],\
             ["postcss", "npm:8.4.33"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:9ddd64de16c8a9bafec41362e46390cc6ecb5fd739f1fbdab077cd944c3f47b6cfe2df51e2de087729f385cb64f91069ad5de0b79a1e5828aac8f8b8b87fbee4#npm:18.2.0"],\
@@ -2099,6 +2101,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/ip-npm-2.0.0-204facb3cc-cfcfac6b87.zip/node_modules/ip/",\
           "packageDependencies": [\
             ["ip", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["ipad-cursor", [\
+        ["npm:0.5.2", {\
+          "packageLocation": "./.yarn/cache/ipad-cursor-npm-0.5.2-e769a6d9dd-0236785d94.zip/node_modules/ipad-cursor/",\
+          "packageDependencies": [\
+            ["ipad-cursor", "npm:0.5.2"]\
           ],\
           "linkType": "HARD"\
         }]\

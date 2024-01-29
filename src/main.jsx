@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { IPadCursorProvider, useIPadCursor } from "ipad-cursor/react";
 import './index.css'
 import { Suspense } from 'react'
 import {
@@ -11,10 +12,13 @@ import routes from '~react-pages'
 import Layout from './pages/_layout'
 
 const AppC = () => {
+  useIPadCursor();
   return (
+    <IPadCursorProvider>
       <Suspense fallback={<p>Loading...</p>}>
         {useRoutes(routes)}
       </Suspense>
+    </IPadCursorProvider>
   )
 }
 
