@@ -99,7 +99,7 @@ export default function Example({ children }) {
             </header>
 
             <div className="relative isolate px-6 pt-14 lg:px-8">
-                <div className="fixed isolate px-6 pt-14 lg:px-8">
+                <div className="z-50 fixed isolate px-6 pt-14 lg:px-8">
                     <div
                         className="fixed inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
                         aria-hidden="true"
@@ -116,7 +116,7 @@ export default function Example({ children }) {
                     {[children]}
 
                     <div
-                        className="fixed inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+                        className="z-50 fixed inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
                         aria-hidden="true"
                     >
                         <div
