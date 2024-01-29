@@ -1,26 +1,29 @@
-import { useEffect } from 'react';
 import '../styles/App.css'
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
 
-function App() {
-    useEffect(() => { document.title = "Adkimsm Home" })
-
+export default function Example() {
     return (
-        <Stack spacing={2}>
-            <h1 style={{ display: 'none' }}>Adkimsm</h1>
-            <Typography variant="h2" gutterBottom sx={{ fontWeight: 600 }}>
-                Hello,<br />I'm <mark className='hSqPQ'>Adkimsm</mark>
-            </Typography>
-            <Typography variant="subtitle1" gutterBottom>Front-end Developer / Open Sourceror / Blogger / Android Player</Typography>
-            <Typography variant="subtitle2" gutterBottom>A Student from China</Typography>
-            <Stack spacing={2} direction="row" >
-                <Button variant="contained" href="https://blog.adki.site">Blog</Button>
-                <Button variant="outlined" href="https://github.com/Adkimsm">GitHub</Button>
-            </Stack>
-        </Stack>
+        <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+            <div className="text-center">
+                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                    Hello, Here's <mark className='hSqPQ'>Adkimsm</mark>
+                </h1>
+                <p className="mt-6 text-lg leading-8 text-gray-600">
+                    Front-end Developer / Open Sourceror / Blogger / Android Player
+                    <br />
+                    A Student from China
+                </p>
+                <div className="mt-10 flex items-center justify-center gap-x-6">
+                    <a
+                        href="https://blog.adki.site"
+                        className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    >
+                        Blog
+                    </a>
+                    <a href="https://github.com/adkimsm" className="text-sm font-semibold leading-6 text-gray-900">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
     )
 }
-
-export default App

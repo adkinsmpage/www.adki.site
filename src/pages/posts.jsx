@@ -1,24 +1,5 @@
 import { useState, useEffect } from 'react'
-import Box from '@mui/material/Box';
-import Skeleton from '@mui/material/Skeleton';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { styled, alpha } from '@mui/material/styles';
 import dayjs from 'dayjs'
-
-const BoxC = styled('div')(({ theme }) => ({
-    boxSizng: 'border-box',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha(theme.palette.common.white, 0.15),
-    '&:hover': {
-        backgroundColor: alpha(theme.palette.common.white, 0.25)
-    },
-    margin: theme.spacing(1),
-    width: 'auto',
-}));
 
 function App() {
     const [blogInfo, setBlogInfo] = useState({})
@@ -40,35 +21,42 @@ function App() {
         console.log(blogInfo)
     }, [blogInfo])
 
-    return (
-        <Box sx={{padding: '2rem'}}>
-            {
-                loading ? blogInfo.posts?.map((post, key) => {
-                    return <BoxC key={key}>
-                        <Card variant="outlined">
-                            <CardContent>
-                                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                                    {dayjs(post.date).format("YYYY-MM-DD")}
-                                </Typography>
-                                <Typography variant="h5" component="div">
+    return (<div className="bg-white py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="mx-auto max-w-2xl lg:mx-0">
+                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">The <mark className='hSqPQ'>Blog</mark></h2>
+                <p className="mt-2 text-lg leading-8 text-gray-600">
+                    Some posts by Adkimsm, usually written in Chinese
+                </p>
+            </div>
+            {loading ? <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                {blogInfo.posts.map((post, i) => (
+                    <article key={i} className="flex max-w-xl flex-col items-start justify-between">
+                        <div className="flex items-center gap-x-4 text-xs">
+                            <time dateTime={post.datetime} className="text-gray-500">
+                                {dayjs(post.date).format("YYYY-MM-DD")}
+                            </time>
+                            <a
+                                href={post.categories[0].permalink}
+                                className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                            >
+                                {post.categories[0].name}
+                            </a>
+                        </div>
+                        <div className="group relative">
+                            <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                                <a href={blogInfo.meta.url + blogInfo.meta.root + post.path}>
+                                    <span className="absolute inset-0" />
                                     {post.title}
-                                </Typography>
-                                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                                    {post.categories[0].name}
-                                </Typography>
-                                <Typography variant="body2">
-                                    {post.excerpt}
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                <Button href={blogInfo.meta.url + blogInfo.meta.root + post.path} size="small">Learn More</Button>
-                            </CardActions>
-                        </Card>
-                    </BoxC>
-                }) : <h1><Skeleton variant="rectangular" /></h1>
-            }
-        </Box>
-    )
+                                </a>
+                            </h3>
+                            <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.excerpt}</p>
+                        </div>
+                    </article>
+                ))}
+            </div> : <><br /><h2 className='text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight'>Loading...</h2></>}
+        </div>
+    </div>)
 }
 
 export default App
