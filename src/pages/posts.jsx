@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
 import { Link } from "react-router-dom";
+import Loading from '../components/Loading';
 
 function App() {
     const [blogInfo, setBlogInfo] = useState({})
@@ -55,7 +56,7 @@ function App() {
                         </div>
                     </article>
                 ))}
-            </div> : <><br /><h2 className='text-2xl font-bold leading-7 text-gray-900 dark:text-slate-300 sm:truncate sm:text-3xl sm:tracking-tight'>Loading...</h2></>}
+            </div> : <><br /><Loading /></>}
         </div>
     </div>)
 }

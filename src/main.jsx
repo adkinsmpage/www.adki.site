@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { IPadCursorProvider, useIPadCursor } from "ipad-cursor/react";
 import './index.css'
+import Loading from './components/Loading';
 import { Suspense } from 'react'
 import {
   BrowserRouter as Router,
@@ -15,7 +16,7 @@ const AppC = () => {
   useIPadCursor();
   return (
     <IPadCursorProvider>
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<Loading />}>
         {useRoutes(routes)}
       </Suspense>
     </IPadCursorProvider>
