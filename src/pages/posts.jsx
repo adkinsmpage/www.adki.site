@@ -46,7 +46,7 @@ function App() {
                         </div>
                         <div className="group relative">
                             <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600 dark:text-slate-300">
-                                <Link to={`/post?pid=${i}`}>
+                                <Link to={`/post/${i}`}>
                                     <span className="absolute inset-0" />
                                     {post.title}
                                 </Link>

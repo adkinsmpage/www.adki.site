@@ -1,4 +1,4 @@
-import '../styles/yue.css'
+import '../../styles/yue.css'
 import { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
 import { useParams } from 'react-router-dom'
@@ -23,6 +23,7 @@ export default function Example() {
         console.log(loading)
         console.log(blogInfo)
         loading === true ? document.title = `${blogInfo.posts.at(pid).title} | Adkimsm Blog` : null
+        loading === true ? window.blogInfo = blogInfo : null
     }, [loading])
 
     return (<><header className="pt-6 xl:pb-6">
@@ -33,6 +34,7 @@ export default function Example() {
                     <dd className="text-base font-medium leading-6 text-gray-500 dark:text-white" data-cursor="block">
                         <time dateTime="2023-08-05T00:00:00.000Z">{loading === true ? dayjs(blogInfo.posts.at(pid).date).format("YYYY-MM-DD") : ""}</time>
                     </dd>
+                    {console.log("pid:" + pid)}
                 </div>
             </dl>
             <div>
@@ -46,7 +48,7 @@ export default function Example() {
                     <div className="lg:pr-4">
                         <div
                             className="yue max-w-xl text-base leading-7 text-gray-700 dark:text-slate-300 lg:max-w-lg"
-                            dangerouslySetInnerHTML={{ __html: loading === true ? (blogInfo.posts.at(pid) ? blogInfo.posts.at(pid).content : "Loading...") : "Loading..." }}
+                            dangerouslySetInnerHTML={{ __html: loading === true ? blogInfo.posts.at(pid).content : "Loading..."}}
                         >
                         </div>
                     </div>
