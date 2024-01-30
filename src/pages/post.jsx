@@ -25,18 +25,18 @@ export default function Example() {
         loading === true ? document.title = `${blogInfo.posts.at(pid).title} | Adkimsm Blog` : null
     }, [loading])
 
-    return (<><header class="pt-6 xl:pb-6">
-        <div class="space-y-1 text-center">
-            <dl class="space-y-10">
+    return (<><header className="pt-6 xl:pb-6">
+        <div className="space-y-1 text-center">
+            <dl className="space-y-10">
                 <div>
-                    <dt class="sr-only">Published on</dt>
-                    <dd class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                        <time datetime="2023-08-05T00:00:00.000Z">{loading === true ? dayjs(blogInfo.posts.at(pid).date).format("YYYY-MM-DD") : ""}</time>
+                    <dt className="sr-only">Published on</dt>
+                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                        <time dateTime="2023-08-05T00:00:00.000Z">{loading === true ? dayjs(blogInfo.posts.at(pid).date).format("YYYY-MM-DD") : ""}</time>
                     </dd>
                 </div>
             </dl>
             <div>
-                <h1 class="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">{loading === true ? blogInfo.posts.at(pid).title : ""}</h1>
+                <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">{loading === true ? blogInfo.posts.at(pid).title : ""}</h1>
             </div>
         </div>
     </header>
