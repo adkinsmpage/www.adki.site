@@ -40,7 +40,7 @@ export default function Example({ children }) {
                     </div>
                     <div className="hidden lg:flex lg:gap-x-12">
                         {navigation.map((item) => (
-                            <Link key={item.name} to={item.href} data-cursor="block" className="text-sm font-semibold leading-6 text-gray-900  dark:text-slate-300">
+                            <Link key={item.name} to={item.href} data-cursor="block" className="px-3.5 py-2.5 text-sm font-semibold leading-6 text-gray-900  dark:text-slate-300">
                                 {item.name}
                             </Link>
                         ))}

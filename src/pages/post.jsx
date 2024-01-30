@@ -30,13 +30,13 @@ export default function Example() {
             <dl className="space-y-10">
                 <div>
                     <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-white">
+                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-white" data-cursor="block">
                         <time dateTime="2023-08-05T00:00:00.000Z">{loading === true ? dayjs(blogInfo.posts.at(pid).date).format("YYYY-MM-DD") : ""}</time>
                     </dd>
                 </div>
             </dl>
             <div>
-                <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-white sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">{loading === true ? blogInfo.posts.at(pid).title : ""}</h1>
+                <h1 data-cursor="block" className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-white sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">{loading === true ? blogInfo.posts.at(pid).title : ""}</h1>
             </div>
         </div>
     </header>
