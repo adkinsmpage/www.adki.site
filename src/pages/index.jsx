@@ -4,10 +4,10 @@ export default function Example() {
     return (
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
             <div className="text-center">
-                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+                <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-slate-300">
                     Hello, Here's <mark className='hSqPQ'>Adkimsm</mark>
                 </h1>
-                <p className="mt-6 text-lg leading-8 text-gray-600">
+                <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-slate-300">
                     Front-end Developer / Open Sourceror / Blogger / Android Player
                     <br />
                     A Student from China
@@ -20,7 +20,7 @@ export default function Example() {
                     >
                         Blog
                     </a>
-                    <a data-cursor="block" href="https://github.com/adkimsm" className="text-sm font-semibold leading-6 text-gray-900">
+                    <a data-cursor="block" href="https://github.com/adkimsm" className="text-sm font-semibold leading-6 text-gray-900 dark:text-slate-300">
                         GitHub
                     </a>
                 </div>

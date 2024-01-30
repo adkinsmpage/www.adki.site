@@ -21,11 +21,11 @@ function App() {
         console.log(blogInfo)
     }, [blogInfo])
 
-    return (<div className="bg-white py-24 sm:py-32">
+    return (<div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto max-w-2xl lg:mx-0">
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">The <mark className='hSqPQ'>Blog</mark></h2>
-                <p className="mt-2 text-lg leading-8 text-gray-600">
+                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-slate-300">The <mark className='hSqPQ'>Blog</mark></h2>
+                <p className="mt-2 text-lg leading-8 text-gray-600 dark:text-slate-300">
                     Some posts by Adkimsm, usually written in Chinese
                 </p>
             </div>
@@ -38,23 +38,23 @@ function App() {
                             </time>
                             <a
                                 href={post.categories[0].permalink}
-                                className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+                                className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600  dark:text-slate-300 hover:bg-gray-100"
                             >
                                 {post.categories[0].name}
                             </a>
                         </div>
                         <div className="group relative">
-                            <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+                            <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600 dark:text-slate-300">
                                 <a href={`/post?pid=${i}`}>
                                     <span className="absolute inset-0" />
                                     {post.title}
                                 </a>
                             </h3>
-                            <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">{post.excerpt}</p>
+                            <p className="mt-5 line-clamp-3 text-sm leading-6 text-gray-600 dark:text-slate-300">{post.excerpt}</p>
                         </div>
                     </article>
                 ))}
-            </div> : <><br /><h2 className='text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight'>Loading...</h2></>}
+            </div> : <><br /><h2 className='text-2xl font-bold leading-7 text-gray-900 dark:text-slate-300 sm:truncate sm:text-3xl sm:tracking-tight'>Loading...</h2></>}
         </div>
     </div>)
 }

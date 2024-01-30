@@ -30,13 +30,13 @@ export default function Example() {
             <dl className="space-y-10">
                 <div>
                     <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-white">
                         <time dateTime="2023-08-05T00:00:00.000Z">{loading === true ? dayjs(blogInfo.posts.at(pid).date).format("YYYY-MM-DD") : ""}</time>
                     </dd>
                 </div>
             </dl>
             <div>
-                <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">{loading === true ? blogInfo.posts.at(pid).title : ""}</h1>
+                <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-white sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">{loading === true ? blogInfo.posts.at(pid).title : ""}</h1>
             </div>
         </div>
     </header>
@@ -45,7 +45,7 @@ export default function Example() {
                 <div className="lg:mx-auto lg:w-full lg:max-w-7xl lg:px-8">
                     <div className="lg:pr-4">
                         <div
-                            className="yue max-w-xl text-base leading-7 text-gray-700 lg:max-w-lg"
+                            className="yue max-w-xl text-base leading-7 text-gray-700 dark:text-slate-300 lg:max-w-lg"
                             dangerouslySetInnerHTML={{ __html: loading === true ? (blogInfo.posts.at(pid) ? blogInfo.posts.at(pid).content : "Loading...") : "Loading..." }}
                         >
                         </div>
