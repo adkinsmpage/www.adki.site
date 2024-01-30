@@ -22,7 +22,7 @@ export default function Example({ children }) {
                         <Link to="/" className="-m-1.5 p-1.5" data-cursor="block">
                             <span className="sr-only">Adkimsm</span>
                             <img
-                                className="h-8 w-auto"
+                                className="h-8 w-auto rounded-full"
                                 src="http://q1.qlogo.cn/g?b=qq&nk=3248546325&s=100"
                                 alt="Avatar"
                             />
