@@ -23,7 +23,7 @@ export default function Example({ children }) {
                             <span className="sr-only">Adkimsm</span>
                             <img
                                 className="h-8 w-auto"
-                                src="https://avatars.githubusercontent.com/u/75924586?v=4"
+                                src="http://q1.qlogo.cn/g?b=qq&nk=3248546325&s=100"
                                 alt="Avatar"
                             />
                         </Link>
