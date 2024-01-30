@@ -16,7 +16,7 @@ export default function Example({ children }) {
 
     return (
         <div className="">
-            <header className="absolute inset-x-0 top-0 z-50">
+            <header className="absolute inset-x-0 top-0">
                 <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                     <div className="flex lg:flex-1">
                         <Link to="/" className="-m-1.5 p-1.5" data-cursor="block">
@@ -50,8 +50,8 @@ export default function Example({ children }) {
                     </div>
                 </nav>
                 <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-                    <div className="fixed inset-0 z-50" />
-                    <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-gray-950 dark:text-slate-300 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+                    <div className="fixed inset-0" />
+                    <Dialog.Panel className="fixed inset-y-0 right-0 w-full overflow-y-auto bg-white dark:bg-gray-950 dark:text-slate-300 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">
                             <Link href="/" className="-m-1.5 p-1.5" data-cursor="block">
                                 <span className="sr-only">Adkimsm</span>
@@ -98,8 +98,8 @@ export default function Example({ children }) {
                 </Dialog>
             </header>
 
-            <div className="relative isolate px-6 pt-14 lg:px-8">
-                <div className="z-50 fixed isolate px-6 pt-14 lg:px-8">
+            <div className="relative isolate px-6 pt-14 lg:px-8 -z-10">
+                <div className="fixed isolate px-6 pt-14 lg:px-8">
                     <div
                         className="fixed inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
                         aria-hidden="true"
@@ -116,7 +116,7 @@ export default function Example({ children }) {
                     {[children]}
 
                     <div
-                        className="z-50 fixed inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+                        className="fixed inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
                         aria-hidden="true"
                     >
                         <div
