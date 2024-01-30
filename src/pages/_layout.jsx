@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { MoonIcon } from '@heroicons/react/24/solid'
 import { useEffect } from 'react';
 import { Link } from "react-router-dom";
 
@@ -11,8 +12,27 @@ const navigation = [
 
 export default function Example({ children }) {
     useEffect(() => { document.title = "Adkimsm Home" })
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false),
+        [darkMode, setDarkMode] = useState(false)
 
+    useEffect(() => {
+        if (localStorage.dark === "true" && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark')
+            setDarkMode(true)
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    }, [])
+
+    useEffect(() => {
+        console.log(darkMode)
+        localStorage.setItem('dark', darkMode.toString())
+        if (darkMode) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    }, [darkMode])
 
     return (
         <div className="">
@@ -46,7 +66,9 @@ export default function Example({ children }) {
                         ))}
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-                        <Link to="/" className="text-sm font-semibold leading-6 text-gray-900" aria-hidden="true"></Link>
+                        <Link to="/" className="text-sm font-semibold leading-6 text-gray-900 dark:text-slate-300">
+                            <MoonIcon className="w-6 h-6" onClick={() => setDarkMode(mode => !mode)} />
+                        </Link>
                     </div>
                 </nav>
                 <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -57,7 +79,7 @@ export default function Example({ children }) {
                                 <span className="sr-only">Adkimsm</span>
                                 <img
                                     className="h-8 w-auto"
-                                    src="https://avatars.githubusercontent.com/u/75924586?v=4"
+                                    src="http://q1.qlogo.cn/g?b=qq&nk=3248546325&s=100"
                                     alt=""
                                 />
                             </Link>
@@ -86,10 +108,10 @@ export default function Example({ children }) {
                                 </div>
                                 <div className="py-6">
                                     <Link
-                                        aria-hidden="true"
                                         to="#"
-                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900  dark:text-slate-300 hover:bg-gray-50"
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-slate-300 hover:bg-gray-50"
                                     >
+                                        <MoonIcon className="w-6 h-6" onClick={() => setDarkMode(mode => !mode)} />
                                     </Link>
                                 </div>
                             </div>
