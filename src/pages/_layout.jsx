@@ -78,7 +78,11 @@ export default function Example({ children }) {
                     <div className="fixed inset-0" />
                     <Dialog.Panel className="fixed inset-y-0 right-0 w-full overflow-y-auto bg-white dark:bg-gray-950 dark:text-slate-300 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">
-                            <Link href="/" className="-m-1.5 p-1.5" data-cursor="block">
+                            <Link 
+                                onClick={() => setMobileMenuOpen(false)}
+                                to="/" 
+                                className="-m-1.5 p-1.5" 
+                                data-cursor="block">
                                 <span className="sr-only">Adkimsm</span>
                                 <img
                                     className="h-8 w-auto"
@@ -103,6 +107,7 @@ export default function Example({ children }) {
                                             data-cursor="block"
                                             key={item.name}
                                             to={item.href}
+                                            onClick={() => setMobileMenuOpen(false)}
                                             className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900  dark:text-slate-300 dark:hover:bg-gray-900 hover:bg-gray-50"
                                         >
                                             {item.name}
