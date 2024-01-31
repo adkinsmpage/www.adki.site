@@ -148,18 +148,22 @@
 }
 
 .yue code,
-.yue code,
+.yue pre,
 .yue tt {
+    display: block !important;
     font-size: .86em;
     font-family: var(--yue-f-mono);
     font-weight: 600;
     padding: 1px 3px;
-    word-wrap: break-all;
+    word-wrap: break-word;
     border-radius: 2px
 }
 
 .yue pre {
-    font-family: var(--yue-f-mono)
+    font-family: var(--yue-f-mono);
+    width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
 }
 
 .yue iframe {
