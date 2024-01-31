@@ -147,14 +147,14 @@
     margin: .4em 0 .6em
 }
 
-.yue li>code,
-.yue p>code,
-.yue p>tt {
+.yue code,
+.yue code,
+.yue tt {
     font-size: .86em;
     font-family: var(--yue-f-mono);
     font-weight: 600;
     padding: 1px 3px;
-    word-wrap: break-word;
+    word-wrap: break-all;
     border-radius: 2px
 }
 

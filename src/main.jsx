@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { IPadCursorProvider, useIPadCursor } from "ipad-cursor/react";
 import './index.css'
+import './styles/normalize.css'
 import Loading from './components/Loading';
 import { Suspense } from 'react'
 import {
@@ -11,6 +12,7 @@ import {
 
 import routes from '~react-pages'
 import Layout from './pages/_layout'
+import './styles/normalize.css'
 
 const AppC = () => {
   useIPadCursor();
