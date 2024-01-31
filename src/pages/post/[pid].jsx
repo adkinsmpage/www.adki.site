@@ -27,34 +27,27 @@ export default function Example() {
         loading === true ? window.blogInfo = blogInfo : null
     }, [loading])
 
-    return loading === true ? <><header className="pt-6 xl:pb-6">
-        <div className="space-y-1 text-center">
-            <dl className="space-y-10">
-                <div>
-                    <dt className="sr-only">Published on</dt>
-                    <dd className="text-base font-medium leading-6 text-gray-500 dark:text-white" data-cursor="block">
-                        <time dateTime="2023-08-05T00:00:00.000Z">{dayjs(blogInfo.posts.at(pid).date).format("YYYY-MM-DD")}</time>
-                    </dd>
-                    {console.log("pid:" + pid)}
-                </div>
-            </dl>
-            <div>
-                <h1 data-cursor="block" className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-white sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">{blogInfo.posts.at(pid).title}</h1>
+    return loading === true ? 
+        <div className="relative isolate overflow-hidden py-12 sm:py-12 lg:overflow-visible px-7 of-x-hidden">
+            <div className="pt-6 pb-6 mb-0">
+                <h1
+                    data-cursor="block"
+                    className="mb-8 slide-enter-50 text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-white sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
+                >
+                    {blogInfo.posts.at(pid).title}
+                </h1>
+                <time className='opacity-50 !-mt-6 slide-enter-50'>{dayjs(blogInfo.posts.at(pid).date).format("YYYY-MM-DD")}</time>
             </div>
-        </div>
-    </header>
-        <div className="relative isolate overflow-hidden px-6 py-12 sm:py-12 lg:overflow-visible lg:px-0">
-            <div className="mx-auto">
-                <div className="lg:mx-auto lg:w-full lg:max-w-7xl lg:px-8">
-                    <div className="lg:pr-4">
+            <div className="">
+                <div className="mb-8 w-full lg:max-w-7xl">
+                    <div>
                         <div
-                            className="yue max-w-xl text-base leading-7 text-gray-700 dark:text-slate-300 lg:max-w-lg"
+                            className="yue text-base leading-7 text-gray-700 dark:text-slate-300 max-w-2xl px-0"
                             dangerouslySetInnerHTML={{ __html: blogInfo.posts.at(pid).content }}
                         >
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </> : <LoadingComponent />
+        </div> : <LoadingComponent />
 }
