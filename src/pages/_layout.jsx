@@ -100,7 +100,7 @@ export default function Example({ children }) {
                                             data-cursor="block"
                                             key={item.name}
                                             to={item.href}
-                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900  dark:text-slate-300 hover:bg-gray-50"
+                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900  dark:text-slate-300 hover:bg-gray-900"
                                         >
                                             {item.name}
                                         </Link>
@@ -109,7 +109,7 @@ export default function Example({ children }) {
                                 <div className="py-6">
                                     <Link
                                         to="#"
-                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-slate-300 hover:bg-gray-50"
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-slate-300 hover:bg-gray-900"
                                     >
                                         <MoonIcon className="w-6 h-6" onClick={() => setDarkMode(mode => !mode)} />
                                     </Link>
