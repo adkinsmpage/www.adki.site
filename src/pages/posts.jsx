@@ -40,7 +40,7 @@ function App() {
                             </time>
                             <a
                                 href={post.categories[0].permalink}
-                                className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 dark:bg-gray-800 dark:text-slate-300"
+                                className="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 dark:bg-gray-800 dark:text-slate-300"
                             >
                                 {post.categories[0].name}
                             </a>
