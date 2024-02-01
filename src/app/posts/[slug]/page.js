@@ -1,5 +1,5 @@
 import '@/app/page.css'
-import '@/app/posts/[slug]/yue.css'
+import '@/app/posts/[slug]/markdown.css'
 import dayjs from 'dayjs'
 import { getPostInfo } from '@/app/posts/utils'
 import { Suspense } from 'react'
@@ -26,7 +26,7 @@ export default async function Page({ params }) {
                 <div className="mb-8 w-full">
                     <div>
                         <div
-                            className="yue text-base leading-7 text-gray-700 dark:text-slate-300 max-w-2xl px-0"
+                            className="markdown-body text-base leading-7 text-gray-700 dark:text-slate-300 max-w-2xl px-0"
                             dangerouslySetInnerHTML={{ __html: data.content }}
                         >
                         </div>
