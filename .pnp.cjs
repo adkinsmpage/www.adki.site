@@ -41,7 +41,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:6196c4b44ff4096c7e59cea34a48087484967e9f7244b8cded697ec1d0a1cfbe22241b04c0fe4f5928d9c607e1c7d5ab004ad7322929b8c193f4928003158442#npm:18.2.0"],\
             ["shiki", "npm:1.0.0-beta.2"],\
-            ["tailwindcss", "npm:3.4.1"]\
+            ["tailwindcss", "npm:3.4.1"],\
+            ["yaml", "npm:2.3.4"]\
           ],\
           "linkType": "SOFT"\
         }]\
@@ -2391,7 +2392,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:6196c4b44ff4096c7e59cea34a48087484967e9f7244b8cded697ec1d0a1cfbe22241b04c0fe4f5928d9c607e1c7d5ab004ad7322929b8c193f4928003158442#npm:18.2.0"],\
             ["shiki", "npm:1.0.0-beta.2"],\
-            ["tailwindcss", "npm:3.4.1"]\
+            ["tailwindcss", "npm:3.4.1"],\
+            ["yaml", "npm:2.3.4"]\
           ],\
           "linkType": "SOFT"\
         }]\
