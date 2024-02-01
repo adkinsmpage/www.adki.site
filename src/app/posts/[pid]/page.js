@@ -1,5 +1,6 @@
 import '@/app/page.css'
 import '@/app/posts/[pid]/yue.css'
+import '@/app/posts/[pid]/prism.css'
 import dayjs from 'dayjs'
 
 let loading = true
