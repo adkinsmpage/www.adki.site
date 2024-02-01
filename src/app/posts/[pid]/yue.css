@@ -150,7 +150,6 @@
 .yue code,
 .yue pre,
 .yue tt {
-    display: block !important;
     font-size: .86em;
     font-family: var(--yue-f-mono);
     font-weight: 600;
