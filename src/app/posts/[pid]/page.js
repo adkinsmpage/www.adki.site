@@ -1,7 +1,9 @@
 import '@/app/page.css'
 import '@/app/posts/[pid]/yue.css'
-import '@/app/posts/[pid]/prism.css'
 import dayjs from 'dayjs'
+import MarkdownIt from 'markdown-it'
+import Shiki from '@shikijs/markdown-it'
+import markdownItFrontMatter from 'markdown-it-front-matter'
 
 let loading = true
 
@@ -19,6 +21,18 @@ async function getData() {
 }
 
 export default async function Page({ params }) {
+    const md = MarkdownIt({
+        html: true,
+        breaks: true,
+    }).use(await Shiki({
+        themes: {
+            light: 'github-light',
+            dark: 'github-dark',
+        }
+    })).use(markdownItFrontMatter, function (fm) {
+        console.log(fm)
+    })
+
     const { pid } = params
     const data = await getData()
     console.log(!loading ? data : "not loaded")
@@ -39,7 +53,7 @@ export default async function Page({ params }) {
                     <div>
                         <div
                             className="yue text-base leading-7 text-gray-700 dark:text-slate-300 max-w-2xl px-0"
-                            dangerouslySetInnerHTML={{ __html: data.posts.at(pid).content }}
+                            dangerouslySetInnerHTML={{ __html: md.render(data.posts.at(pid).raw) }}
                         >
                         </div>
                     </div>

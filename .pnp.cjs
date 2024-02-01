@@ -30,13 +30,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@headlessui/react", "virtual:6196c4b44ff4096c7e59cea34a48087484967e9f7244b8cded697ec1d0a1cfbe22241b04c0fe4f5928d9c607e1c7d5ab004ad7322929b8c193f4928003158442#npm:1.7.18"],\
             ["@heroicons/react", "virtual:6196c4b44ff4096c7e59cea34a48087484967e9f7244b8cded697ec1d0a1cfbe22241b04c0fe4f5928d9c607e1c7d5ab004ad7322929b8c193f4928003158442#npm:2.1.1"],\
+            ["@shikijs/markdown-it", "npm:1.0.0-beta.2"],\
             ["autoprefixer", "virtual:6196c4b44ff4096c7e59cea34a48087484967e9f7244b8cded697ec1d0a1cfbe22241b04c0fe4f5928d9c607e1c7d5ab004ad7322929b8c193f4928003158442#npm:10.4.17"],\
             ["dayjs", "npm:1.11.10"],\
             ["ipad-cursor", "npm:0.5.2"],\
+            ["markdown-it", "npm:14.0.0"],\
+            ["markdown-it-front-matter", "npm:0.2.3"],\
             ["next", "virtual:6196c4b44ff4096c7e59cea34a48087484967e9f7244b8cded697ec1d0a1cfbe22241b04c0fe4f5928d9c607e1c7d5ab004ad7322929b8c193f4928003158442#npm:14.1.0"],\
             ["postcss", "npm:8.4.33"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:6196c4b44ff4096c7e59cea34a48087484967e9f7244b8cded697ec1d0a1cfbe22241b04c0fe4f5928d9c607e1c7d5ab004ad7322929b8c193f4928003158442#npm:18.2.0"],\
+            ["shiki", "npm:1.0.0-beta.2"],\
             ["tailwindcss", "npm:3.4.1"]\
           ],\
           "linkType": "SOFT"\
@@ -329,6 +333,37 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@shikijs/core", [\
+        ["npm:1.0.0-beta.2", {\
+          "packageLocation": "./.yarn/cache/@shikijs-core-npm-1.0.0-beta.2-356e9a5303-8a1d9e51d5.zip/node_modules/@shikijs/core/",\
+          "packageDependencies": [\
+            ["@shikijs/core", "npm:1.0.0-beta.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@shikijs/markdown-it", [\
+        ["npm:1.0.0-beta.2", {\
+          "packageLocation": "./.yarn/cache/@shikijs-markdown-it-npm-1.0.0-beta.2-aca9a70d56-4f926eab37.zip/node_modules/@shikijs/markdown-it/",\
+          "packageDependencies": [\
+            ["@shikijs/markdown-it", "npm:1.0.0-beta.2"],\
+            ["@shikijs/transformers", "npm:1.0.0-beta.2"],\
+            ["markdown-it", "npm:14.0.0"],\
+            ["shiki", "npm:1.0.0-beta.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@shikijs/transformers", [\
+        ["npm:1.0.0-beta.2", {\
+          "packageLocation": "./.yarn/cache/@shikijs-transformers-npm-1.0.0-beta.2-d32b3d6e5b-c6dc60722c.zip/node_modules/@shikijs/transformers/",\
+          "packageDependencies": [\
+            ["@shikijs/transformers", "npm:1.0.0-beta.2"],\
+            ["shiki", "npm:1.0.0-beta.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@swc/helpers", [\
         ["npm:0.5.2", {\
           "packageLocation": "./.yarn/cache/@swc-helpers-npm-0.5.2-f81ca286ad-51d7e3d8bd.zip/node_modules/@swc/helpers/",\
@@ -463,6 +498,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/arg-npm-5.0.2-2f5805a547-6c69ada1a9.zip/node_modules/arg/",\
           "packageDependencies": [\
             ["arg", "npm:5.0.2"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["argparse", [\
+        ["npm:2.0.1", {\
+          "packageLocation": "./.yarn/cache/argparse-npm-2.0.1-faff7999e6-83644b5649.zip/node_modules/argparse/",\
+          "packageDependencies": [\
+            ["argparse", "npm:2.0.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -778,6 +822,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["encoding", "npm:0.1.13"],\
             ["iconv-lite", "npm:0.6.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["entities", [\
+        ["npm:4.5.0", {\
+          "packageLocation": "./.yarn/cache/entities-npm-4.5.0-7cdb83b832-853f8ebd5b.zip/node_modules/entities/",\
+          "packageDependencies": [\
+            ["entities", "npm:4.5.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1173,6 +1226,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["linkify-it", [\
+        ["npm:5.0.0", {\
+          "packageLocation": "./.yarn/cache/linkify-it-npm-5.0.0-adb5f9c96f-b0b86cadaf.zip/node_modules/linkify-it/",\
+          "packageDependencies": [\
+            ["linkify-it", "npm:5.0.0"],\
+            ["uc.micro", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["loose-envify", [\
         ["npm:1.4.0", {\
           "packageLocation": "./.yarn/cache/loose-envify-npm-1.4.0-6307b72ccf-6517e24e0c.zip/node_modules/loose-envify/",\
@@ -1216,6 +1279,39 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["negotiator", "npm:0.6.3"],\
             ["promise-retry", "npm:2.0.1"],\
             ["ssri", "npm:10.0.5"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["markdown-it", [\
+        ["npm:14.0.0", {\
+          "packageLocation": "./.yarn/cache/markdown-it-npm-14.0.0-e9aebdc7e3-f63bd8b39b.zip/node_modules/markdown-it/",\
+          "packageDependencies": [\
+            ["markdown-it", "npm:14.0.0"],\
+            ["argparse", "npm:2.0.1"],\
+            ["entities", "npm:4.5.0"],\
+            ["linkify-it", "npm:5.0.0"],\
+            ["mdurl", "npm:2.0.0"],\
+            ["punycode.js", "npm:2.3.1"],\
+            ["uc.micro", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["markdown-it-front-matter", [\
+        ["npm:0.2.3", {\
+          "packageLocation": "./.yarn/cache/markdown-it-front-matter-npm-0.2.3-b5a0221d41-605ec5f368.zip/node_modules/markdown-it-front-matter/",\
+          "packageDependencies": [\
+            ["markdown-it-front-matter", "npm:0.2.3"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["mdurl", [\
+        ["npm:2.0.0", {\
+          "packageLocation": "./.yarn/cache/mdurl-npm-2.0.0-3259713daf-880bc289ef.zip/node_modules/mdurl/",\
+          "packageDependencies": [\
+            ["mdurl", "npm:2.0.0"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -1746,6 +1842,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["punycode.js", [\
+        ["npm:2.3.1", {\
+          "packageLocation": "./.yarn/cache/punycode.js-npm-2.3.1-9084ecbbf5-13466d7ed5.zip/node_modules/punycode.js/",\
+          "packageDependencies": [\
+            ["punycode.js", "npm:2.3.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["queue-microtask", [\
         ["npm:1.2.3", {\
           "packageLocation": "./.yarn/cache/queue-microtask-npm-1.2.3-fcc98e4e2d-b676f8c040.zip/node_modules/queue-microtask/",\
@@ -1893,6 +1998,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/shebang-regex-npm-3.0.0-899a0cd65e-1a2bcae50d.zip/node_modules/shebang-regex/",\
           "packageDependencies": [\
             ["shebang-regex", "npm:3.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["shiki", [\
+        ["npm:1.0.0-beta.2", {\
+          "packageLocation": "./.yarn/cache/shiki-npm-1.0.0-beta.2-8cd7ad2a4b-738a4b2479.zip/node_modules/shiki/",\
+          "packageDependencies": [\
+            ["shiki", "npm:1.0.0-beta.2"],\
+            ["@shikijs/core", "npm:1.0.0-beta.2"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -2156,6 +2271,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["uc.micro", [\
+        ["npm:2.0.0", {\
+          "packageLocation": "./.yarn/cache/uc.micro-npm-2.0.0-9517366009-86e142c239.zip/node_modules/uc.micro/",\
+          "packageDependencies": [\
+            ["uc.micro", "npm:2.0.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["unique-filename", [\
         ["npm:3.0.0", {\
           "packageLocation": "./.yarn/cache/unique-filename-npm-3.0.0-77d68e0a45-8e2f59b356.zip/node_modules/unique-filename/",\
@@ -2256,13 +2380,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["www-adki-site", "workspace:."],\
             ["@headlessui/react", "virtual:6196c4b44ff4096c7e59cea34a48087484967e9f7244b8cded697ec1d0a1cfbe22241b04c0fe4f5928d9c607e1c7d5ab004ad7322929b8c193f4928003158442#npm:1.7.18"],\
             ["@heroicons/react", "virtual:6196c4b44ff4096c7e59cea34a48087484967e9f7244b8cded697ec1d0a1cfbe22241b04c0fe4f5928d9c607e1c7d5ab004ad7322929b8c193f4928003158442#npm:2.1.1"],\
+            ["@shikijs/markdown-it", "npm:1.0.0-beta.2"],\
             ["autoprefixer", "virtual:6196c4b44ff4096c7e59cea34a48087484967e9f7244b8cded697ec1d0a1cfbe22241b04c0fe4f5928d9c607e1c7d5ab004ad7322929b8c193f4928003158442#npm:10.4.17"],\
             ["dayjs", "npm:1.11.10"],\
             ["ipad-cursor", "npm:0.5.2"],\
+            ["markdown-it", "npm:14.0.0"],\
+            ["markdown-it-front-matter", "npm:0.2.3"],\
             ["next", "virtual:6196c4b44ff4096c7e59cea34a48087484967e9f7244b8cded697ec1d0a1cfbe22241b04c0fe4f5928d9c607e1c7d5ab004ad7322929b8c193f4928003158442#npm:14.1.0"],\
             ["postcss", "npm:8.4.33"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:6196c4b44ff4096c7e59cea34a48087484967e9f7244b8cded697ec1d0a1cfbe22241b04c0fe4f5928d9c607e1c7d5ab004ad7322929b8c193f4928003158442#npm:18.2.0"],\
+            ["shiki", "npm:1.0.0-beta.2"],\
             ["tailwindcss", "npm:3.4.1"]\
           ],\
           "linkType": "SOFT"\

@@ -216,6 +216,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@shikijs/core@npm:1.0.0-beta.2":
+  version: 1.0.0-beta.2
+  resolution: "@shikijs/core@npm:1.0.0-beta.2"
+  checksum: 8a1d9e51d523a22692e7fb1a8fb29c7bf0ea6db52ab7f81f17918b48abb5a8daf215294b29f76a97e068b406ae05134eb3c32ae231fceba41eb2d67ebcbe440e
+  languageName: node
+  linkType: hard
+
+"@shikijs/markdown-it@npm:^1.0.0-beta.2":
+  version: 1.0.0-beta.2
+  resolution: "@shikijs/markdown-it@npm:1.0.0-beta.2"
+  dependencies:
+    "@shikijs/transformers": 1.0.0-beta.2
+    markdown-it: ^14.0.0
+    shiki: 1.0.0-beta.2
+  checksum: 4f926eab374b6cfaaa0df337e0d5181fbdfaa384a1a70b8cc6ef7e88077f113275a5065d9358f3dab8b3ccd647028c81373b9f5b4f4c63b03085332479ceec65
+  languageName: node
+  linkType: hard
+
+"@shikijs/transformers@npm:1.0.0-beta.2":
+  version: 1.0.0-beta.2
+  resolution: "@shikijs/transformers@npm:1.0.0-beta.2"
+  dependencies:
+    shiki: 1.0.0-beta.2
+  checksum: c6dc60722c86299b7524066fe06dabff834c4a9debfae5b0a064f5c2c6988cb78dccc9964d95f76179def8a0627c3b41d858a2e9c2300d127c02ab46295a1613
+  languageName: node
+  linkType: hard
+
 "@swc/helpers@npm:0.5.2":
   version: 0.5.2
   resolution: "@swc/helpers@npm:0.5.2"
@@ -321,6 +348,13 @@ __metadata:
   version: 5.0.2
   resolution: "arg@npm:5.0.2"
   checksum: 6c69ada1a9943d332d9e5382393e897c500908d91d5cb735a01120d5f71daf1b339b7b8980cbeaba8fd1afc68e658a739746179e4315a26e8a28951ff9930078
+  languageName: node
+  linkType: hard
+
+"argparse@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "argparse@npm:2.0.1"
+  checksum: 83644b56493e89a254bae05702abf3a1101b4fa4d0ca31df1c9985275a5a5bd47b3c27b7fa0b71098d41114d8ca000e6ed90cad764b306f8a503665e4d517ced
   languageName: node
   linkType: hard
 
@@ -581,6 +615,13 @@ __metadata:
   dependencies:
     iconv-lite: ^0.6.2
   checksum: bb98632f8ffa823996e508ce6a58ffcf5856330fde839ae42c9e1f436cc3b5cc651d4aeae72222916545428e54fd0f6aa8862fd8d25bdbcc4589f1e3f3715e7f
+  languageName: node
+  linkType: hard
+
+"entities@npm:^4.4.0":
+  version: 4.5.0
+  resolution: "entities@npm:4.5.0"
+  checksum: 853f8ebd5b425d350bffa97dd6958143179a5938352ccae092c62d1267c4e392a039be1bae7d51b6e4ffad25f51f9617531fedf5237f15df302ccfb452cbf2d7
   languageName: node
   linkType: hard
 
@@ -936,6 +977,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"linkify-it@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "linkify-it@npm:5.0.0"
+  dependencies:
+    uc.micro: ^2.0.0
+  checksum: b0b86cadaf816b64c947a83994ceaad1c15f9fe7e079776ab88699fb71afd7b8fc3fd3d0ae5ebec8c92c1d347be9ba257b8aef338c0ebf81b0d27dcf429a765a
+  languageName: node
+  linkType: hard
+
 "loose-envify@npm:^1.1.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
@@ -979,6 +1029,36 @@ __metadata:
     promise-retry: ^2.0.1
     ssri: ^10.0.0
   checksum: 7c7a6d381ce919dd83af398b66459a10e2fe8f4504f340d1d090d3fa3d1b0c93750220e1d898114c64467223504bd258612ba83efbc16f31b075cd56de24b4af
+  languageName: node
+  linkType: hard
+
+"markdown-it-front-matter@npm:^0.2.3":
+  version: 0.2.3
+  resolution: "markdown-it-front-matter@npm:0.2.3"
+  checksum: 605ec5f3683e1d69d76b6e26c80328069669424b3d58ef0bb42953871f98ff8c831e74450c2bda81ec158fe0424f8937e94bfb7af6dd890cec41d28b667576f7
+  languageName: node
+  linkType: hard
+
+"markdown-it@npm:^14.0.0":
+  version: 14.0.0
+  resolution: "markdown-it@npm:14.0.0"
+  dependencies:
+    argparse: ^2.0.1
+    entities: ^4.4.0
+    linkify-it: ^5.0.0
+    mdurl: ^2.0.0
+    punycode.js: ^2.3.1
+    uc.micro: ^2.0.0
+  bin:
+    markdown-it: bin/markdown-it.mjs
+  checksum: f63bd8b39b2232ad686ec49f046bbf51c34253e38295f5d44a8e5dc6ec5401e9a9fbed0bb88cbc1635608e2bb21c5a3c2336a2a9f52548c24be5abd06001bc01
+  languageName: node
+  linkType: hard
+
+"mdurl@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "mdurl@npm:2.0.0"
+  checksum: 880bc289ef668df0bb34c5b2b5aaa7b6ea755052108cdaf4a5e5968ad01cf27e74927334acc9ebcc50a8628b65272ae6b1fd51fae1330c130e261c0466e1a3b2
   languageName: node
   linkType: hard
 
@@ -1426,6 +1506,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"punycode.js@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "punycode.js@npm:2.3.1"
+  checksum: 13466d7ed5e8dacdab8c4cc03837e7dd14218a59a40eb14a837f1f53ca396e18ef2c4ee6d7766b8ed2fc391d6a3ac489eebf2de83b3596f5a54e86df4a251b72
+  languageName: node
+  linkType: hard
+
 "queue-microtask@npm:^1.2.2":
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
@@ -1561,6 +1648,15 @@ __metadata:
   version: 3.0.0
   resolution: "shebang-regex@npm:3.0.0"
   checksum: 1a2bcae50de99034fcd92ad4212d8e01eedf52c7ec7830eedcf886622804fe36884278f2be8be0ea5fde3fd1c23911643a4e0f726c8685b61871c8908af01222
+  languageName: node
+  linkType: hard
+
+"shiki@npm:1.0.0-beta.2, shiki@npm:^1.0.0-beta.2":
+  version: 1.0.0-beta.2
+  resolution: "shiki@npm:1.0.0-beta.2"
+  dependencies:
+    "@shikijs/core": 1.0.0-beta.2
+  checksum: 738a4b2479d31bfbe796e254141e9efb4b5af59ace15610b3a065aa90856904a130c32564e8a96fb2ee0ac4e89dd3aebeb62104d61f4db58403192d0a942b1bc
   languageName: node
   linkType: hard
 
@@ -1791,6 +1887,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"uc.micro@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "uc.micro@npm:2.0.0"
+  checksum: 86e142c239ed01360b9d705a9e194cfb55cfee2dbd22ffa52465a6270e3308dfc23347550d46836e60ea97dcf6cf57eef9531e5ac22e418fb994c0f761a74fa0
+  languageName: node
+  linkType: hard
+
 "unique-filename@npm:^3.0.0":
   version: 3.0.0
   resolution: "unique-filename@npm:3.0.0"
@@ -1880,13 +1983,17 @@ __metadata:
   dependencies:
     "@headlessui/react": ^1.7.18
     "@heroicons/react": ^2.1.1
+    "@shikijs/markdown-it": ^1.0.0-beta.2
     autoprefixer: ^10.0.1
     dayjs: ^1.11.10
     ipad-cursor: ^0.5.2
+    markdown-it: ^14.0.0
+    markdown-it-front-matter: ^0.2.3
     next: 14.1.0
     postcss: ^8
     react: ^18
     react-dom: ^18
+    shiki: ^1.0.0-beta.2
     tailwindcss: ^3.3.0
   languageName: unknown
   linkType: soft

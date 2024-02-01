@@ -150,18 +150,14 @@
 .yue code,
 .yue pre,
 .yue tt {
-    font-size: .86em;
-    font-family: var(--yue-f-mono);
-    font-weight: 600;
-    padding: 1px 3px;
     border-radius: 2px;
 }
 
 .yue pre code {
-    font-family: var(--yue-f-mono);
     box-sizing: border-box;
     word-wrap: break-word;
     white-space: pre-wrap;
+    display: block;
 }
 
 .yue pre,

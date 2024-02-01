@@ -11,11 +11,15 @@
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
+    "@shikijs/markdown-it": "^1.0.0-beta.2",
     "dayjs": "^1.11.10",
     "ipad-cursor": "^0.5.2",
+    "markdown-it": "^14.0.0",
+    "markdown-it-front-matter": "^0.2.3",
     "next": "14.1.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "shiki": "^1.0.0-beta.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
