@@ -37,10 +37,8 @@ export const getPostsInfo = () => {
 }
 
 export const getPostInfo = slug => {
-    console.log(resolve(process.cwd(), 'posts', slug + ".md"))
     let postMarkdown = fs.readFileSync(resolve(process.cwd(), 'posts', slug + ".md"), 'utf8')
     let content = md.render(postMarkdown)
-    console.log("fms:", fms)
     let fmsN = fms
     fms = []
     return {

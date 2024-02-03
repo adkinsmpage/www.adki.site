@@ -7,9 +7,7 @@ import Loading from '@/app/posts/loading'
 
 export default async function Page({ params }) {
     const { slug } = params
-    console.log("slug:", slug)
     const data = getPostInfo(slug)
-    console.log(data)
 
     return <Suspense fallback={<Loading />}>
         <div className="mx-auto relative isolate overflow-hidden py-12 sm:py-12 lg:overflow-visible px-7 flex items-center flex-col">

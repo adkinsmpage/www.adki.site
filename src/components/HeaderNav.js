@@ -25,7 +25,6 @@ export default function HeaderNav({ children }) {
     }, [])
 
     useEffect(() => {
-        console.log(darkMode)
         localStorage.setItem('dark', darkMode.toString())
         if (darkMode) {
             document.documentElement.classList.add('dark')
