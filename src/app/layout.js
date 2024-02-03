@@ -14,9 +14,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className={inter.className}>
       <body className="bg-white dark:bg-gray-950 dark:text-white">
         <HeaderNav />
-          <div id="root">
-            {children}
-          </div>
+        <div id="root">
+          {children}
+        </div>
       </body>
     </html>
   );
