@@ -1,3 +1,7 @@
+.banner {
+  height: 100vh;
+}
+
 .highLightMark:before {
     background-color: #dbeafe;
     z-index: -1;
