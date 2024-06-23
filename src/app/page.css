@@ -21,7 +21,7 @@
     background-color: transparent;
     display: inline-block;
     position: relative;
-    color: #1e40af;
+    color: var(--primary-color);
   }
   
   @media (prefers-color-scheme: dark) {
@@ -29,6 +29,6 @@
       color: #bfdbfe;
     }
     .highLightMark:before {
-      background-color: #1e3a8a;
+      background-color: var(--primary-color);
     }
   }

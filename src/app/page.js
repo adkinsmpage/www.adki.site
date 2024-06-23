@@ -33,17 +33,17 @@ export default function Home() {
                     {
                         title: '智力状况',
                         value: 40,
-                        tip: '神经经常打结，并不聪明的样子( ´_ゝ`)',
+                        tip: '半痴呆（雾',
                     },
                     {
                         title: '精神状态',
-                        value: 40,
-                        tip: '玉玉了（bushi',
+                        value: 30,
+                        tip: '某些时候有点抑郁的样子（？',
                     },
                     {
                         title: '脑细胞活跃度',
-                        value: 50,
-                        tip: '不善于设计东西，不善于蹦出新点子，坏！',
+                        value: 10,
+                        tip: '喜欢设计一些 shit',
                     },
                     {
                         title: '社交能力',
