@@ -29,7 +29,6 @@ export default function Home() {
 
             <div className="text-3xl font-medium relative pl-5 mb-2 text-left">属性点全集</div>
             <Properties Properties={{
-                title: '咕咕属性值',
                 content: [
                     {
                         title: '智力状况',
@@ -38,8 +37,8 @@ export default function Home() {
                     },
                     {
                         title: '精神状态',
-                        value: 80,
-                        tip: '对大家都很感兴趣呢！',
+                        value: 40,
+                        tip: '玉玉了（bushi',
                     },
                     {
                         title: '脑细胞活跃度',
@@ -48,8 +47,8 @@ export default function Home() {
                     },
                     {
                         title: '社交能力',
-                        value: 90,
-                        tip: '除了偶尔会说错话，咱还是很外向的说！',
+                        value: 20,
+                        tip: '内向腼腆小男孩（bushi',
                     },
                 ],
             }} />
