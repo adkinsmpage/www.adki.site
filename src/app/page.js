@@ -27,7 +27,7 @@ export default function Home() {
                 </p>
                 <section className="px-6 py-24 sm:py-32 lg:px-8">
                     <figure className="mx-auto max-w-2xl">
-                        <blockquote className="font-serif mt-10 text-xl font-medium leading-8 tracking-tight text-gray-700 sm:text-2xl sm:leading-9">
+                        <blockquote className="font-serif mt-10 dark:text-white/80 text-xl font-medium leading-8 tracking-tight text-gray-700 sm:text-2xl sm:leading-9">
                             <p>
                                {hitokoto}
                             </p>
