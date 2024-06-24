@@ -13,18 +13,6 @@ export default function Home() {
                     <br />
                     A Student from China
                 </p>
-                <div className="mt-10 flex items-center justify-center gap-x-6">
-                    <a
-                        data-cursor="block"
-                        href="https://blog.adki.site"
-                        className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                        Blog
-                    </a>
-                    <a data-cursor="block" href="https://github.com/adkimsm" className="text-sm font-semibold leading-6 text-gray-900 dark:text-slate-300 px-3.5 py-2.5 ">
-                        GitHub
-                    </a>
-                </div>
             </div>
 
             <div className="text-3xl font-medium relative pl-5 mb-2 text-left">属性点全集</div>
