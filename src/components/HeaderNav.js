@@ -5,6 +5,7 @@ import { useState, useEffect, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { MoonIcon } from '@heroicons/react/24/solid'
+import { usePathname } from 'next/navigation'
 
 export default function HeaderNav({ children }) {
     let navigations = [
@@ -13,7 +14,9 @@ export default function HeaderNav({ children }) {
     ]
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false),
-        [darkMode, setDarkMode] = useState(false)
+        [darkMode, setDarkMode] = useState(false),
+        pathname = usePathname()
+
 
     useEffect(() => {
         if (localStorage.dark === "true" && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -23,6 +26,10 @@ export default function HeaderNav({ children }) {
             document.documentElement.classList.remove('dark')
         }
     }, [])
+
+    useEffect(()=> {
+        console.log(pathname)
+    })
 
     useEffect(() => {
         localStorage.setItem('dark', darkMode.toString())
@@ -59,7 +66,12 @@ export default function HeaderNav({ children }) {
                     </div>
                     <div className="hidden lg:flex lg:gap-x-12">
                         {navigations.map((item) => (
-                            <Link key={item.name} href={item.href} data-cursor="block" className="px-3.5 py-2.5 text-sm font-semibold leading-6 text-gray-900  dark:text-slate-300">
+                            <Link
+                                key={item.name}
+                                href={item.href}
+                                data-cursor="block"
+                                className={`px-3.5 py-2.5 text-sm font-semibold rounded-2xl border border-transparent leading-6 ${pathname === item.href ? "text-indigo-600 dark:text-indigo-500" : "dark:text-slate-300 text-gray-900"}`}
+                            >
                                 {item.name}
                             </Link>
                         ))}
