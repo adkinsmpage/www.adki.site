@@ -40,3 +40,30 @@
         transition: top .25s, opacity .25s;
     }
 }
+
+.card {
+    border: 1px solid transparent;
+    transition: border .3s, box-shadow .3s;
+    width: var(--c-card-width);
+}
+
+.card:hover {
+    border: 1px solid transparent;
+    box-shadow: 0 0 4px #727272;
+    transition: border .3s, box-shadow .3s;
+}
+
+.card.w-full {
+    width: calc(100% - 8px);
+}
+
+@media screen and (max-width: 1024px) { /* 移动端 */
+    :root {
+        --c-card-width: calc(100% - 1.5rem);
+    }
+}
+@media screen and (min-width: 1024px) { /* 桌面端 */
+    :root {
+        --c-card-width: calc(50% - 1.15rem);
+    }
+}

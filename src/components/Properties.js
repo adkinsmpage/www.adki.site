@@ -6,13 +6,12 @@
  * 
  */ 
 
-import Card from "./Card"
 import "./Properties.css"
 
 export default function Properties({ Properties }) {
     return <div className="property-wrapper">
         {Properties.content.map((item, i) => (
-            <Card key={i}>
+            <div className='card rounded-lg px-5 py-3 my-2 mr-4 inline-block' key={i}>
                 <div className="title text-lg flex">
                     <span>{item.title}</span>
                     <span className="grow"></span>
@@ -26,7 +25,7 @@ export default function Properties({ Properties }) {
                     </div>
                 </div>
 
-            </Card>
+            </div>
         ))}
     </div>
 }
