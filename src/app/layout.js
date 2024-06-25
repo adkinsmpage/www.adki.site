@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={inter.className}>
       <body className="bg-white dark:bg-gray-950 dark:text-white">
         <HeaderNav />
-        <div id="root">
+        <div id="root" className="absolute inset-0">
           {children}
         </div>
       </body>

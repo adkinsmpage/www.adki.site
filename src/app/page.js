@@ -1,6 +1,7 @@
 'use client'
 
 import '@/app/page.css'
+import '@/app/waves.min.css'
 import Properties from '@/components/Properties'
 import { useEffect, useState } from 'react';
 
@@ -12,6 +13,8 @@ export default function Home() {
             .then(response => response.json())
             .then(data => setHitokoto(data.hitokoto))
             .catch(console.error)
+
+        import("@/app/waves.min.js").then(Waves => Waves.displayEffect())
     }, [])
 
     return <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
@@ -25,11 +28,11 @@ export default function Home() {
                     <br />
                     A Student from China
                 </p>
-                <section className="px-6 py-24 sm:py-32 lg:px-8">
+                <section className="absolute inset-x-0 bottom-32 p-7 waves-effect">
                     <figure className="mx-auto max-w-2xl">
-                        <blockquote className="font-serif mt-10 dark:text-white/80 text-xl font-medium leading-8 tracking-tight text-gray-700 sm:text-2xl sm:leading-9">
+                        <blockquote className="font-serif text-xl font-medium leading-8 tracking-tight text-gray-700 sm:text-2xl sm:leading-9">
                             <p>
-                               {hitokoto}
+                                {hitokoto}
                             </p>
                         </blockquote>
                     </figure>
