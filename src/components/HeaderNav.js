@@ -10,7 +10,8 @@ import { usePathname } from 'next/navigation'
 export default function HeaderNav({ children }) {
     let navigations = [
         { name: 'Home', href: '/' },
-        { name: 'Posts', href: '/posts' }
+        { name: 'Posts', href: '/posts' },
+        { name: 'About', href: '/pages/about' }
     ]
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false),
