@@ -14,7 +14,7 @@ export default function Home() {
             .then(data => setHitokoto(data.hitokoto))
             .catch(console.error)
 
-        import("@/app/waves.min.js").then(Waves => Waves.displayEffect())
+        import("@/app/waves.min.js").then(Waves => Waves.init())
     }, [])
 
     return <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
@@ -30,7 +30,7 @@ export default function Home() {
                 </p>
                 <section className="absolute inset-x-0 bottom-32 p-7 waves-effect">
                     <figure className="mx-auto max-w-2xl">
-                        <blockquote className="font-serif text-xl font-medium leading-8 tracking-tight text-gray-700 sm:text-2xl sm:leading-9">
+                        <blockquote className="font-serif text-xl font-medium leading-8 tracking-tight dark:text-white/80 text-gray-700 sm:text-2xl sm:leading-9">
                             <p>
                                 {hitokoto}
                             </p>
