@@ -34,7 +34,7 @@ export default async function Page() {
                                 <dl className="-my-3 divide-y divide-gray-100 px-6 py-4 text-sm leading-6">
                                     <div className="flex justify-between gap-x-4 py-3">
                                         <dt className="text-gray-500">标签</dt>
-                                        <dd className="flex items-start gap-x-2">{
+                                        <dd className="flex items-start gap-x-2 overflow-y-auto">{
                                             post.tags.map((tag, i) => (
                                                 <span key={i}
                                                     className="inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600"
