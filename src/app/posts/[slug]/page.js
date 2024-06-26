@@ -7,7 +7,7 @@ import Loading from '@/app/posts/loading'
 
 export default async function Page({ params }) {
     const { slug } = params
-    const data = getPostInfo(slug)
+    const data = await getPostInfo(slug)
 
     return <Suspense fallback={<Loading />}>
         <div className="mx-auto relative isolate overflow-hidden py-12 sm:py-12 lg:overflow-visible px-7 flex items-center flex-col">
@@ -17,15 +17,15 @@ export default async function Page({ params }) {
                         data-cursor="block"
                         className="mb-8 text-3xl font-extrabold leading-9 text-gray-900 dark:text-white sm:text-4xl sm:leading-10 md:text-5xl md:leading-14"
                     >
-                        {data.fms.title}
+                        {data.data.matter.title}
                     </h1>
-                    <time className='opacity-50 !-mt-6 slide-enter-50'>{dayjs(data.fms.date).format("YYYY-MM-DD")}</time>
+                    <time className='opacity-50 !-mt-6 slide-enter-50'>{dayjs(data.data.matter.date).format("YYYY-MM-DD")}</time>
                 </div>
                 <div className="mb-8 w-full">
                     <div>
                         <div
                             className="markdown-body text-base leading-7 text-gray-700 dark:text-slate-300 max-w-2xl px-0"
-                            dangerouslySetInnerHTML={{ __html: data.content }}
+                            dangerouslySetInnerHTML={{ __html: String(data) }}
                         >
                         </div>
                     </div>

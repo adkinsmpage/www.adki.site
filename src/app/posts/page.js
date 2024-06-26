@@ -6,7 +6,7 @@ import { Suspense } from 'react'
 import Loading from '@/app/posts/loading'
 
 export default async function Page() {
-    const data = getPostsInfo()
+    const data = await getPostsInfo()
 
     return <div className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -18,7 +18,7 @@ export default async function Page() {
             </div>
             <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-2">
                 <Suspense fallback={<Loading />}>
-                    {data.fms.map((post, i) => (
+                    {data.posts.map((post, i) => (
                         <Link
                             key={i}
                             href={`/posts/${data.titles.at(i)}`}
@@ -28,14 +28,14 @@ export default async function Page() {
                             >
                                 <div className="flex items-center gap-x-4 border-b border-gray-900/5 p-6">
                                     <div className="text-sm font-medium leading-6 text-gray-900 dark:text-slate-300">
-                                        {post.title}
+                                        {post.data.matter.title}
                                     </div>
                                 </div>
                                 <dl className="-my-3 divide-y divide-gray-100 px-6 py-4 text-sm leading-6">
                                     <div className="flex justify-between gap-x-4 py-3">
                                         <dt className="text-gray-500 dark:text-white/80">标签</dt>
                                         <dd className="flex items-start gap-x-2 overflow-y-auto">{
-                                            post.tags.map((tag, i) => (
+                                            post.data.matter.tags.map((tag, i) => (
                                                 <span key={i}
                                                     className="inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600"
                                                 >
@@ -49,14 +49,14 @@ export default async function Page() {
                                         <dd className="flex items-start gap-x-2">
                                             <div
                                                 className="inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600">
-                                                {post.categories.at(0)}
+                                                {post.data.matter.categories.at(0)}
                                             </div>
                                         </dd>
                                     </div>
                                     <div className="flex justify-between gap-x-4 py-3">
                                         <dt className="text-gray-500 dark:text-white/80">最新更新时间</dt>
                                         <dd className="text-gray-700 dark:text-white/80">
-                                            <span>{dayjs(post.date).format("YYYY-MM-DD")}</span>
+                                            <span>{dayjs(post.data.matter.date).format("YYYY-MM-DD")}</span>
                                         </dd>
                                     </div>
                                 </dl>
