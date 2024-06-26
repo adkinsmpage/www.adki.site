@@ -24,16 +24,16 @@ export default async function Page() {
                             href={`/posts/${data.titles.at(i)}`}
                         >
                             <div
-                                className="overflow-hidden rounded-xl border border-gray-200 bg-gray-50/45 transition-all hover:scale-[1.03] ease-linear hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.17)]"
+                                className="overflow-hidden rounded-xl border border-gray-200 bg-gray-50/45 dark:bg-gray-900/45 dark:text-white/80 transition-all hover:scale-[1.03] ease-linear hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.17)]"
                             >
                                 <div className="flex items-center gap-x-4 border-b border-gray-900/5 p-6">
-                                    <div className="text-sm font-medium leading-6 text-gray-900">
+                                    <div className="text-sm font-medium leading-6 text-gray-900 dark:text-slate-300">
                                         {post.title}
                                     </div>
                                 </div>
                                 <dl className="-my-3 divide-y divide-gray-100 px-6 py-4 text-sm leading-6">
                                     <div className="flex justify-between gap-x-4 py-3">
-                                        <dt className="text-gray-500">标签</dt>
+                                        <dt className="text-gray-500 dark:text-white/80">标签</dt>
                                         <dd className="flex items-start gap-x-2 overflow-y-auto">{
                                             post.tags.map((tag, i) => (
                                                 <span key={i}
@@ -45,7 +45,7 @@ export default async function Page() {
                                         </dd>
                                     </div>
                                     <div className="flex justify-between gap-x-4 py-3">
-                                        <dt className="text-gray-500">分类</dt>
+                                        <dt className="text-gray-500 dark:text-white/80">分类</dt>
                                         <dd className="flex items-start gap-x-2">
                                             <div
                                                 className="inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-600">
@@ -54,8 +54,8 @@ export default async function Page() {
                                         </dd>
                                     </div>
                                     <div className="flex justify-between gap-x-4 py-3">
-                                        <dt className="text-gray-500">最新更新时间</dt>
-                                        <dd className="text-gray-700">
+                                        <dt className="text-gray-500 dark:text-white/80">最新更新时间</dt>
+                                        <dd className="text-gray-700 dark:text-white/80">
                                             <span>{dayjs(post.date).format("YYYY-MM-DD")}</span>
                                         </dd>
                                     </div>

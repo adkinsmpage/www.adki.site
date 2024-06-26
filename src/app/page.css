@@ -24,7 +24,7 @@
     color: var(--primary-color);
   }
   
-  @media (prefers-color-scheme: dark) {
+  .dark {
     .highLightMark {
       color: #bfdbfe;
     }
