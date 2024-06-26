@@ -264,6 +264,9 @@ html.dark {
 .markdown-body table thead th {
   font-weight: 600;
 }
+.markdown-body table > tbody > tr {
+  transition: all .3s;
+}
 .markdown-body table > tbody > tr:hover {
   background-color: rgba(var(--smc-c-primary-rgb), 0.1);
 }
