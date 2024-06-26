@@ -46,8 +46,6 @@ export const getPostInfo = async slug => {
     const postMarkdown = await read(resolve(process.cwd(), 'posts', slug + ".md"), 'utf8')
 
     const content = await render.process(postMarkdown)
-
-    console.log(content)
-
+    
     return content
 }
