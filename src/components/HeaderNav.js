@@ -11,6 +11,7 @@ export default function HeaderNav({ children }) {
     let navigations = [
         { name: 'Home', href: '/' },
         { name: 'Posts', href: '/posts' },
+        { name: 'Links', href: '/pages/links' },
         { name: 'About', href: '/pages/about' }
     ]
 
