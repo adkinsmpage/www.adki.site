@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Providers from './providers';
 import HeaderNav from "@/components/header/Header";
 import Background from "@/components/background";
 import DarkMode from "@/components/darkMode";
@@ -13,15 +14,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={inter.className}>
-      <body className="bg-white dark:bg-gray-950 dark:text-white">
-        <HeaderNav />
-        <Background />
-        <DarkMode />
-        <div id="root">
-          {children}
-        </div>
-      </body>
-    </html>
+      <html lang="en" className={inter.className}>
+        <body className="bg-white dark:bg-gray-950 dark:text-white">
+        <Providers>
+          <HeaderNav />
+          <Background />
+          <DarkMode />
+          <div id="root">
+            {children}
+          </div>
+          </Providers>
+        </body>
+      </html>
   );
 }

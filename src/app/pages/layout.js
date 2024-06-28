@@ -1,11 +1,8 @@
 import '@/app/page.css'
 import '@/assets/css/markdown.css'
-import { Suspense } from 'react'
-import Loading from '@/components/loading'
 
 export default async function Page({ children }) {
-    return <Suspense fallback={<Loading />}>
-        <div className="mx-auto relative isolate overflow-hidden py-12 sm:py-12 lg:overflow-visible px-7 flex items-center flex-col">
+    return <div className="mx-auto relative isolate overflow-hidden py-12 sm:py-12 lg:overflow-visible px-7 flex items-center flex-col">
             <div>
                 {/*<div className="pt-6 pb-6 mb-0">
                     <h1
@@ -27,5 +24,4 @@ export default async function Page({ children }) {
                 </div>
             </div>
         </div>
-    </Suspense>
 }

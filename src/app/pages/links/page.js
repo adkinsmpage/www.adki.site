@@ -1,12 +1,9 @@
 "use client"
 
 import { HoverEffect } from "@/components/hoverCard";
-import { Suspense } from "react";
-import Loading from "@/components/loading";
 
 export default function () {
-  return (<Suspense fallback={<Loading />}>
-    <div className="mx-auto relative isolate overflow-hidden py-12 sm:py-12 lg:overflow-visible px-7 flex items-center flex-col">
+  return <div className="mx-auto relative isolate overflow-hidden py-12 sm:py-12 lg:overflow-visible px-7 flex items-center flex-col">
       <div>
         <div className="pt-6 pb-6 mb-0">
           <h1
@@ -29,8 +26,6 @@ export default function () {
         </div>
       </div>
     </div>
-  </Suspense>
-  );
 }
 
 export const projects = [

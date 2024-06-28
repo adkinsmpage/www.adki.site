@@ -2,13 +2,10 @@ import '@/app/page.css'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 import { getPosts } from '@/utils/posts'
-import { Suspense } from 'react'
-import Loading from '@/components/loading'
 
 export default async function Page() {
     const data = await getPosts();
 
-    // 确保 data 是一个数组
     if (!Array.isArray(data)) {
         return <div>Error loading posts</div>;
     }
@@ -25,8 +22,7 @@ export default async function Page() {
                     </p>
                 </div>
                 <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                    <Suspense fallback={<Loading />}>
-                        {data.map((post, i) => (
+                    {data.map((post, i) => (
                             <Link
                                 key={i}
                                 href={`/posts/${post.file.replace(".md", "")}`}
@@ -69,7 +65,6 @@ export default async function Page() {
                                 </div>
                             </Link>
                         ))}
-                    </Suspense>
                 </div>
             </div>
         </div>

@@ -2,15 +2,12 @@ import '@/app/page.css'
 import '@/assets/css/markdown.css'
 import dayjs from 'dayjs'
 import { getPostInfo } from '@/utils/posts'
-import { Suspense } from 'react'
-import Loading from '@/components/loading'
 
 export default async function Page({ params }) {
     const { slug } = params
     const data = await getPostInfo(slug)
 
-    return <Suspense fallback={<Loading />}>
-        <div className="mx-auto relative isolate overflow-hidden py-12 sm:py-12 lg:overflow-visible px-7 flex items-center flex-col">
+    return <div className="mx-auto relative isolate overflow-hidden py-12 sm:py-12 lg:overflow-visible px-7 flex items-center flex-col">
             <div>
                 <div className="pt-6 pb-6 mb-0">
                     <h1
@@ -32,5 +29,4 @@ export default async function Page({ params }) {
                 </div>
             </div>
         </div>
-    </Suspense>
 }
