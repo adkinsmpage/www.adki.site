@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
-import { join, resolve } from 'path';
-import {read} from 'to-vfile'
+import path from 'path';
+import { read } from 'to-vfile'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
@@ -24,28 +24,31 @@ const render = await unified()
   })
   .use(rehypeStringify)
 
-const getPosts = async () => await fs.readdir(resolve(process.cwd(), 'posts'))
+  export async function getPosts(directoryPath = path.join(process.cwd(), 'posts')) {
+    try {
+        const files = await fs.readdir(directoryPath);
 
-export const getPostsInfo = async () => {
-  let posts = [],
-      titles = []
+        const fileDetails = await Promise.all(files.map(async (file) => {
+            const filePath = path.join(directoryPath, file);
+            const fileContent = await read(filePath, 'utf8');
+            const postContent = await render.process(fileContent);
+            const frontmatter = postContent.data.matter;
+            return { file, date: new Date(frontmatter.date), frontmatter };
+        }));
 
-  const postDir = await getPosts()
+        fileDetails.sort((a, b) => b.date - a.date);
 
-  for (const post of postDir) {
-      titles.push(post.replace(".md", ""))
-      const fileContent = await read(join(process.cwd(), 'posts', post), 'utf8')
-      const postContent = await render.process(fileContent)
-      posts.push(postContent)
-  }
-
-  return { posts, titles }
+        return fileDetails;
+    } catch (err) {
+        console.error('Error reading directory:', err);
+        return [];
+    }
 }
 
 export const getPostInfo = async slug => {
-    const postMarkdown = await read(resolve(process.cwd(), 'posts', slug + ".md"), 'utf8')
+  const postMarkdown = await read(path.resolve(process.cwd(), 'posts', slug + ".md"), 'utf8')
 
-    const content = await render.process(postMarkdown)
-    
-    return content
+  const content = await render.process(postMarkdown)
+
+  return content
 }

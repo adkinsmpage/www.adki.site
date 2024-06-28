@@ -117,26 +117,26 @@ export default function Nav() {
                                             key={item.name}
                                             href={item.href}
                                             onClick={() => setMobileMenuOpen(false)}
-                                            className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900  dark:text-slate-300 dark:hover:bg-gray-900 hover:bg-gray-50"
+                                            className={`${pathname === item.href ? "text-indigo-600 dark:text-indigo-500" : "dark:text-slate-300 text-gray-900"} -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-slate-300 dark:hover:bg-gray-900 hover:bg-gray-50`}
                                         >
-                                            {item.name}
+                                        { item.name }
                                         </Link>
                                     ))}
-                                </div>
-                                <div className="py-6">
-                                    <button
-                                        onClick={() => setDarkMode(mode => !mode)}
-                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-slate-300 dark:hover:bg-gray-900 hover:bg-gray-50"
-                                    >
-                                        <MoonIcon className="w-6 h-6" />
-                                    </button>
-                                </div>
+                            </div>
+                            <div className="py-6">
+                                <button
+                                    onClick={() => setDarkMode(mode => !mode)}
+                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-slate-300 dark:hover:bg-gray-900 hover:bg-gray-50"
+                                >
+                                    <MoonIcon className="w-6 h-6" />
+                                </button>
                             </div>
                         </div>
-                    </Dialog.Panel>
-                </Transition.Child>
-            </Dialog>
-        </Transition>
+                    </div>
+                </Dialog.Panel>
+            </Transition.Child>
+        </Dialog>
+    </Transition >
     </>
     );
 }
