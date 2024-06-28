@@ -4,8 +4,43 @@ import '@/app/page.css'
 import '@/app/waves.min.css'
 import Properties from '@/components/Properties'
 import { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
+
+const TypewriterEffect = dynamic(() => import('@/components/typeWriter'), { ssr: false });
 
 export default function Home() {
+    const words = [
+        {
+          text: "Front-end",
+        },
+        {
+          text: "Developer",
+        },
+        {
+          text: "/",
+        },
+        {
+          text: "Open",
+        },
+        {
+          text: "Sourceror",
+        },
+        {
+          text: "/",
+        },
+        {
+          text: "Blogger",
+        },
+        {
+          text: "/",
+        },
+        {
+          text: "Android",
+        },
+        {
+          text: "Player",
+        }
+      ];
     const [hitokoto, setHitokoto] = useState("Loading...")
 
     useEffect(() => {
@@ -24,8 +59,7 @@ export default function Home() {
                     Hello, Here's <mark className='highLightMark' data-cursor="block">Adkimsm</mark>
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-slate-300" data-cursor="block">
-                    Front-end Developer / Open Sourceror / Blogger / Android Player
-                    <br />
+                    <TypewriterEffect words={words} />
                     A Student from China
                 </p>
                 <section className="absolute inset-x-0 bottom-32 p-7 waves-effect">
