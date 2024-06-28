@@ -8,7 +8,7 @@ import rehypeStringify from 'rehype-stringify'
 import rehypeShiki from '@shikijs/rehype'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkGfm from 'remark-gfm'
-import remarkFrontmatterYaml from '@/app/posts/remarkFrontmatter'
+import remarkFrontmatterYaml from '@/utils/remark/remarkFrontmatter'
 
 const render = await unified()
   .use(remarkParse)

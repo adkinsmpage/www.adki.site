@@ -2,7 +2,7 @@
 
 import '@/app/page.css'
 import '@/app/waves.min.css'
-import Properties from '@/components/Properties'
+import Properties from '@/components/properties/Properties'
 import { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 

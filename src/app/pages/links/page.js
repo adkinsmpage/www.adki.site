@@ -2,7 +2,7 @@
 
 import { HoverEffect } from "@/components/hoverCard";
 import { Suspense } from "react";
-import Loading from "@/app/posts/loading";
+import Loading from "@/components/loading";
 
 export default function () {
   return (<Suspense fallback={<Loading />}>

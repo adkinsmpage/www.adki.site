@@ -1,9 +1,9 @@
 import '@/app/page.css'
 import dayjs from 'dayjs'
 import Link from 'next/link'
-import { getPostsInfo } from '@/app/posts/utils'
+import { getPostsInfo } from '@/utils/posts'
 import { Suspense } from 'react'
-import Loading from '@/app/posts/loading'
+import Loading from '@/components/loading'
 
 export default async function Page() {
     const data = await getPostsInfo()

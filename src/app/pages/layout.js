@@ -1,7 +1,7 @@
 import '@/app/page.css'
-import '@/app/posts/[slug]/markdown.css'
+import '@/assets/css/markdown.css'
 import { Suspense } from 'react'
-import Loading from '@/app/posts/loading'
+import Loading from '@/components/loading'
 
 export default async function Page({ children }) {
     return <Suspense fallback={<Loading />}>
