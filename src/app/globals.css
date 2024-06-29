@@ -8,6 +8,10 @@
   }
 }
 
+#root {
+  max-width: 64rem;
+}
+
 @font-face {
   font-family: "LXGW Bright GB";
   src: local("LXGW Bright GB"), url("/fonts/c6b50d7ed12386069bf5a3007f89d43c.woff2") format("woff2");

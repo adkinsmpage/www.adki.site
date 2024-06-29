@@ -16,7 +16,7 @@ export default async function Page({ children }) {
                 <div className="mb-8 w-full">
                     <div>
                         <div
-                            className="markdown-body text-base leading-7 text-gray-700 dark:text-slate-300 max-w-2xl px-0"
+                            className="markdown-body text-base leading-7 text-gray-700 dark:text-slate-300 px-0"
                         >
                             {children}
                         </div>

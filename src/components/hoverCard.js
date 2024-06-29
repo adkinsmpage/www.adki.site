@@ -12,7 +12,7 @@ export const HoverEffect = ({
     return (
         <div
             className={cn(
-                "grid grid-cols-2",
+                "mx-auto grid grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2",
                 className
             )}
         >
@@ -63,7 +63,7 @@ export const Card = ({
                 className
             )}
         >
-            <img src={image} className="w-full border border-transparent rounded-2xl hover:scale-125" />
+            <img src={image} className="transition-all w-full border border-transparent rounded-2xl hover:rounded-full" />
             <div className="relative z-50">
                 <div className="p-4">
                     {children}

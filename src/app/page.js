@@ -52,7 +52,7 @@ export default function Home() {
         import("@/app/waves.min.js").then(Waves => Waves.init())
     }, [])
 
-    return <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+    return <div className="mx-auto py-32 sm:py-48 lg:py-56">
         <div className="text-center">
             <div className='banner'>
                 <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-slate-300">
@@ -63,7 +63,7 @@ export default function Home() {
                     A Student from China
                 </div>
                 <section className="absolute inset-x-0 bottom-32 p-7 waves-effect">
-                    <figure className="mx-auto max-w-2xl">
+                    <figure className="mx-auto">
                         <blockquote className="font-serif text-xl font-medium leading-8 tracking-tight dark:text-white/80 text-gray-700 sm:text-2xl sm:leading-9">
                             <p>
                                 {hitokoto}
