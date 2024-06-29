@@ -25,7 +25,7 @@ export default function Nav() {
                     <span className="sr-only">Adkimsm</span>
                     <img
                         className="h-8 w-auto rounded-full"
-                        src="http://q1.qlogo.cn/g?b=qq&nk=3248546325&s=100"
+                        src="https://q1.qlogo.cn/g?b=qq&nk=3248546325&s=100"
                         alt="Avatar"
                     />
                 </Link>
@@ -94,8 +94,8 @@ export default function Nav() {
                                 data-cursor="block">
                                 <span className="sr-only">Adkimsm</span>
                                 <img
-                                    className="h-8 w-auto"
-                                    src="http://q1.qlogo.cn/g?b=qq&nk=3248546325&s=100"
+                                    className="h-8 w-auto rounded-full"
+                                    src="https://q1.qlogo.cn/g?b=qq&nk=3248546325&s=100"
                                     alt=""
                                 />
                             </button>

@@ -58,10 +58,10 @@ export default function Home() {
                 <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-slate-300">
                     Hello, Here's <mark className='highLightMark' data-cursor="block">Adkimsm</mark>
                 </h1>
-                <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-slate-300" data-cursor="block">
+                <div className="mt-6 text-lg leading-8 text-gray-600 dark:text-slate-300" data-cursor="block">
                     <TypewriterEffect words={words} />
                     A Student from China
-                </p>
+                </div>
                 <section className="absolute inset-x-0 bottom-32 p-7 waves-effect">
                     <figure className="mx-auto max-w-2xl">
                         <blockquote className="font-serif text-xl font-medium leading-8 tracking-tight dark:text-white/80 text-gray-700 sm:text-2xl sm:leading-9">
