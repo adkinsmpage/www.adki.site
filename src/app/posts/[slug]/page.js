@@ -7,7 +7,7 @@ import { getPostInfo, getPosts } from '@/utils/posts';
 
 export async function generateStaticParams() {
     const slugs = await getPosts();
-    return slugs.map(slug => ({ slug: slug.file.replace("md", "") }));
+    return slugs.map(slug => ({ slug: slug.file.replace(".md", "") }));
 }
 
 export default async function Page({ params }) {
