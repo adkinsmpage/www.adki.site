@@ -21,10 +21,10 @@ export default function RootLayout({ children }) {
           <HeaderNav />
           <Background />
           <DarkMode />
-          <Fireworks />
           <div id="root">
             {children}
           </div>
+          <Fireworks />
           </Providers>
         </body>
       </html>

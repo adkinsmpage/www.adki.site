@@ -10,5 +10,5 @@ export default function Fireworks() {
         })
     }, [])
 
-    return <canvas className="top-0 left-0 fixed fireworks z-1" />
+    return <canvas className="top-0 left-0 fixed fireworks -z-40" />
 }
