@@ -2,7 +2,7 @@
 title: Hello, World
 date: 2022-10-03 14:58:22
 tags: 
-  - Hello Wrold
+  - Hello World
 categories:
   - 项目
 ---
