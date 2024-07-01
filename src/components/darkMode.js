@@ -8,7 +8,10 @@ export default function DarkMode() {
     let { darkMode } = useSnapshot(store)
 
     useEffect(() => {
-        if (localStorage.dark === "true" && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        if (
+            localStorage.dark === 'true' &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches
+        ) {
             document.documentElement.classList.add('dark')
             store.darkMode = true
         } else {
@@ -25,5 +28,5 @@ export default function DarkMode() {
         }
     }, [darkMode])
 
-    return;
+    return
 }

@@ -1,5 +1,5 @@
 .banner {
-  height: 100vh;
+    height: 100vh;
 }
 
 .highLightMark:before {
@@ -9,26 +9,26 @@
     left: 0;
     display: block;
     position: absolute;
-    content: "";
+    content: '';
     right: 100%;
     top: 50%;
     border: 0 solid transparent;
     box-sizing: border-box;
     width: 100%;
-  }
-  
-  .highLightMark {
+}
+
+.highLightMark {
     background-color: transparent;
     display: inline-block;
     position: relative;
     color: var(--primary-color);
-  }
-  
-  .dark {
+}
+
+.dark {
     .highLightMark {
-      color: #bfdbfe;
+        color: #bfdbfe;
     }
     .highLightMark:before {
-      background-color: var(--primary-color);
+        background-color: var(--primary-color);
     }
-  }
+}
