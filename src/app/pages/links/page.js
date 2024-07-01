@@ -17,7 +17,7 @@ export default function () {
             <div className="links max-w-5xl mx-auto px-8">
                 <ul className="flex flex-wrap gap-5">
                   {projects.map((link, i) => 
-                  <li key={i} className="transition-all border rounded-2xl px-4 hover:border-transparent hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.17)]">
+                  <li key={i} className="transition-all border duration-300 rounded-2xl px-4 border-transparent hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_30px_60px_-15px_rgba(255,255,255,0.3)]">
                     <a href={link.link} target="_blank" className="block flex items-center gap-3">
                       <img
                         alt="avatar of Ohmyga" loading="lazy" width="100" height="100" decoding="async" data-nimg="1"
