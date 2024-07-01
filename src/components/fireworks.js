@@ -1,6 +1,6 @@
 'use client'
 
-import { createFireworks } from '@/utils/fireworks'
+import { createFireworks } from '@explosions/fireworks'
 import { useEffect } from 'react'
 
 export default function Fireworks() {
