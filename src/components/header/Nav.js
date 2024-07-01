@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState, Fragment } from 'react'
+import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { MoonIcon } from '@heroicons/react/24/solid'
@@ -10,7 +10,7 @@ import { store } from '@/utils/state'
 import { useSnapshot } from 'valtio'
 
 export default function Nav() {
-    let { darkMode } = useSnapshot(store)
+    let { darkMode, mobileMenuOpen } = useSnapshot(store)
     const pathname = usePathname()
     let navigations = [
         { name: 'Home', href: '/' },
@@ -18,8 +18,6 @@ export default function Nav() {
         { name: 'Links', href: '/pages/links' },
         { name: 'About', href: '/pages/about' }
     ]
-
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
     return (<>
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -37,7 +35,7 @@ export default function Nav() {
                 <button
                     type="button"
                     className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700  dark:text-slate-300"
-                    onClick={() => setMobileMenuOpen(true)}
+                    onClick={() => store.mobileMenuOpen = true}
                 >
                     <span className="sr-only">Open main menu</span>
                     <Bars3Icon className="h-6 w-6" aria-hidden="true" />
@@ -74,7 +72,7 @@ export default function Nav() {
             show={mobileMenuOpen}
             as={Fragment}
         >
-            <Dialog as="div" className="lg:hidden" onClose={setMobileMenuOpen}>
+            <Dialog as="div" className="lg:hidden" onClose={() => store.mobileMenuOpen = false}>
                 <Transition.Child
                     as={Fragment}
                 >
@@ -92,7 +90,7 @@ export default function Nav() {
                     <Dialog.Panel className="z-40 fixed inset-y-0 right-0 w-full overflow-y-auto bg-white dark:bg-gray-950 dark:text-slate-300 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
                         <div className="flex items-center justify-between">
                             <button
-                                onClick={() => setMobileMenuOpen(false)}
+                                onClick={() => store.mobileMenuOpen = false}
                                 className="-m-1.5 p-1.5"
                                 data-cursor="block">
                                 <span className="sr-only">Adkimsm</span>
@@ -105,7 +103,7 @@ export default function Nav() {
                             <button
                                 type="button"
                                 className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-slate-300"
-                                onClick={() => setMobileMenuOpen(false)}
+                                onClick={() => store.mobileMenuOpen = false}
                             >
                                 <span className="sr-only">Close menu</span>
                                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -119,27 +117,27 @@ export default function Nav() {
                                             data-cursor="block"
                                             key={item.name}
                                             href={item.href}
-                                            onClick={() => setMobileMenuOpen(false)}
+                                            onClick={() => store.mobileMenuOpen = false}
                                             className={`${pathname === item.href ? "text-indigo-600 dark:text-indigo-500" : "dark:text-slate-300 text-gray-900"} -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 dark:text-slate-300 dark:hover:bg-gray-900 hover:bg-gray-50`}
                                         >
-                                        { item.name }
+                                            {item.name}
                                         </Link>
                                     ))}
-                            </div>
-                            <div className="py-6">
-                                <button
-                                    onClick={() => store.darkMode = !darkMode}
-                                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-slate-300 dark:hover:bg-gray-900 hover:bg-gray-50"
-                                >
-                                    <MoonIcon className="w-6 h-6" />
-                                </button>
+                                </div>
+                                <div className="py-6">
+                                    <button
+                                        onClick={() => store.darkMode = !darkMode}
+                                        className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-slate-300 dark:hover:bg-gray-900 hover:bg-gray-50"
+                                    >
+                                        <MoonIcon className="w-6 h-6" />
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </Dialog.Panel>
-            </Transition.Child>
-        </Dialog>
-    </Transition >
+                    </Dialog.Panel>
+                </Transition.Child>
+            </Dialog>
+        </Transition >
     </>
     );
 }

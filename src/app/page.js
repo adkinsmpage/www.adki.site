@@ -3,12 +3,15 @@
 import '@/app/page.css'
 import '@/app/waves.min.css'
 import Properties from '@/components/properties/Properties'
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import dynamic from 'next/dynamic';
+import { useSnapshot } from 'valtio'
+import { store } from '@/utils/state';
 
 const TypewriterEffect = dynamic(() => import('@/components/typeWriter'), { ssr: false });
 
 export default function Home() {
+    const { hitokoto } = useSnapshot(store)
     const words = [
         {
           text: "Front-end",
@@ -41,12 +44,11 @@ export default function Home() {
           text: "Player",
         }
       ];
-    const [hitokoto, setHitokoto] = useState("Loading...")
 
     useEffect(() => {
         fetch('https://v1.hitokoto.cn')
             .then(response => response.json())
-            .then(data => setHitokoto(data.hitokoto))
+            .then(data => store.hitokoto = data.hitokoto)
             .catch(console.error)
 
         import("@/app/waves.min.js").then(Waves => Waves.init())
