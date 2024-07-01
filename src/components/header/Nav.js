@@ -6,8 +6,11 @@ import { Dialog, Transition } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { MoonIcon } from '@heroicons/react/24/solid'
 import { usePathname } from 'next/navigation'
+import { store } from '@/utils/state'
+import { useSnapshot } from 'valtio'
 
 export default function Nav() {
+    let { darkMode } = useSnapshot(store)
     const pathname = usePathname()
     let navigations = [
         { name: 'Home', href: '/' },
@@ -55,7 +58,7 @@ export default function Nav() {
             <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                 <button
                     className="text-sm font-semibold leading-6 text-gray-900 dark:text-slate-300"
-                    onClick={() => setDarkMode(mode => !mode)}
+                    onClick={() => store.darkMode = !darkMode}
                 >
                     <MoonIcon className="w-6 h-6" />
                 </button>
@@ -125,7 +128,7 @@ export default function Nav() {
                             </div>
                             <div className="py-6">
                                 <button
-                                    onClick={() => setDarkMode(mode => !mode)}
+                                    onClick={() => store.darkMode = !darkMode}
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 dark:text-slate-300 dark:hover:bg-gray-900 hover:bg-gray-50"
                                 >
                                     <MoonIcon className="w-6 h-6" />

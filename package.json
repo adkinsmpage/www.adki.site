@@ -34,6 +34,7 @@
     "tailwind-merge": "^2.3.0",
     "to-vfile": "^8.0.0",
     "unified": "^11.0.5",
+    "valtio": "^1.13.2",
     "vfile-matter": "^5.0.0"
   },
   "devDependencies": {

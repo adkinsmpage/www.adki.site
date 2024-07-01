@@ -1,14 +1,16 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
+import { store } from '@/utils/state'
+import { useSnapshot } from 'valtio'
 
 export default function DarkMode() {
-    const [darkMode, setDarkMode] = useState(false)
+    let { darkMode } = useSnapshot(store)
 
     useEffect(() => {
         if (localStorage.dark === "true" && window.matchMedia('(prefers-color-scheme: dark)').matches) {
             document.documentElement.classList.add('dark')
-            setDarkMode(true)
+            store.darkMode = true
         } else {
             document.documentElement.classList.remove('dark')
         }
