@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "beautify": "prettier ./src/**/*.js ./src/**/*.css --config ./.prettierrc --write",
-    "commit": "git add . && cz"
+    "commit": "yarn beautify && git add . && cz"
   },
   "dependencies": {
     "@ctrl/tinycolor": "^4.1.0",
