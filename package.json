@@ -13,7 +13,7 @@
   "dependencies": {
     "@ctrl/tinycolor": "^4.1.0",
     "@explosions/fireworks": "^0.0.2",
-    "@headlessui/react": "^1.7.18",
+    "@headlessui/react": "^2.1.1",
     "@heroicons/react": "^2.1.1",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",

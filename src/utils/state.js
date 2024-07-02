@@ -1,7 +1,7 @@
 import { proxy } from 'valtio'
 
 export const store = proxy({
-    darkMode: false,
+    darkMode: null,
     hitokoto: 'Loading...',
     mobileMenuOpen: false,
 })

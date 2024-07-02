@@ -3,7 +3,6 @@ import './globals.css'
 import Providers from './providers'
 import HeaderNav from '@/components/header/Header'
 import Background from '@/components/background'
-import DarkMode from '@/components/darkMode'
 import Fireworks from '@/components/fireworks'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,7 +20,6 @@ export default function RootLayout({ children }) {
                 <Providers>
                     <HeaderNav />
                     <Background />
-                    <DarkMode />
                     <div id='root'>{children}</div>
                     <Fireworks />
                 </Providers>
