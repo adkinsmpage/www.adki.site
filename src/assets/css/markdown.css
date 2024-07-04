@@ -39,7 +39,7 @@ html.dark {
     background: var(--smc-bg-color);
     color: var(--smc-c-text);
     /*font-family: var(--smc-font-sans);*/
-    font-size: 1rem;
+    font-size: 1.25rem;
     line-height: var(--smc-line-height);
     overflow-wrap: break-word;
 }
@@ -93,7 +93,7 @@ html.dark {
 .markdown-body dl dt {
     padding: 0;
     margin-top: 16px;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-style: italic;
     font-weight: 600;
 }
@@ -121,7 +121,7 @@ html.dark {
 
 .markdown-body code {
     padding: 3px 6px;
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--smc-c-text-light);
     background: var(--smc-code-bg-color);
     border-radius: 3px;
@@ -137,7 +137,7 @@ html.dark {
 }
 
 .markdown-body pre > code {
-    font-size: 0.85rem;
+    font-size: 1rem;
     word-wrap: break-word;
     white-space: pre-wrap;
 }
