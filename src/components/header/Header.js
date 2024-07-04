@@ -3,16 +3,13 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import useDarkMode from '@/utils/hooks/useDarkMode'
+import { store } from '@/utils/state'
+import { useSnapshot } from 'valtio'
 
 export default function HeaderNav() {
+    const { navItems } = useSnapshot(store)
     const pathname = usePathname()
     const [_isDarkMode, _setIsDarkMode] = useDarkMode()
-    let navItems = [
-        { name: 'Home', link: '/' },
-        { name: 'Posts', link: '/posts' },
-        { name: 'Links', link: '/pages/links' },
-        { name: 'About', link: '/pages/about' },
-    ]
 
     return (
         <div className=''>
