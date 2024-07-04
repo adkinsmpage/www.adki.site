@@ -2,9 +2,11 @@
 
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import useDarkMode from '@/utils/hooks/useDarkMode'
 
 export default function HeaderNav() {
     const pathname = usePathname()
+    const [_isDarkMode, _setIsDarkMode] = useDarkMode()
     let navItems = [
         { name: 'Home', link: '/' },
         { name: 'Posts', link: '/posts' },
