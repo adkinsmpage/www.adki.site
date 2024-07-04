@@ -19,7 +19,7 @@ export default function HeaderNav() {
                     <Link
                         key={i}
                         href={item.link}
-                        className={`block py-2 text-center text-black relative ${pathname === item.link ? 'border-gradient text-pink-500 drop-shadow-[0_0_16px_rgba(236,72,153,1)]' : ''}`}
+                        className={`block py-2 text-center text-black relative ${pathname === item.link ? 'border-gradient text-blue-500 drop-shadow-[0_0_16px_rgba(0,120,231,1)]' : ''}`}
                     >
                         {item.name}
                     </Link>
