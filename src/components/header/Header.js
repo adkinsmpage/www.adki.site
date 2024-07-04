@@ -13,12 +13,12 @@ export default function HeaderNav() {
 
     return (
         <div className=''>
-            <div className='fixed top-6 inset-x-0 flex justify-center items-center gap-8 w-fit mx-auto px-8 rounded-3xl bg-white/70 backdrop-blur-lg backdrop-saturate-150 border border-gray-100 shadow-sm z-50'>
+            <div className='fixed top-6 inset-x-0 flex justify-center items-center gap-8 w-fit mx-auto px-8 rounded-3xl bg-white/70 dark:bg-black/45 backdrop-blur-lg backdrop-saturate-150 border border-transparent shadow-sm z-50'>
                 {navItems.map((item, i) => (
                     <Link
                         key={i}
                         href={item.link}
-                        className={`block py-2 text-center text-black relative ${pathname === item.link ? 'border-gradient text-blue-500 drop-shadow-[0_0_16px_rgba(0,120,231,1)]' : ''}`}
+                        className={`transition-all duration-300 block py-2 text-center relative ${pathname === item.link ? 'border-gradient text-blue-500 drop-shadow-[0_0_16px_rgba(0,120,231,1)] dark:text-sky-400' : 'text-black dark:text-white/70 '}`}
                     >
                         {item.name}
                     </Link>
