@@ -31,6 +31,12 @@
     max-width: 64rem;
 }
 
+@media (min-width: 1280px) {
+    .toc {
+        display: block;
+    }
+}
+
 @font-face {
     font-family: 'LXGW Bright GB';
     src:

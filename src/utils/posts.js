@@ -9,6 +9,8 @@ import rehypeShiki from '@shikijs/rehype'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkGfm from 'remark-gfm'
 import remarkFrontmatterYaml from '@/utils/remark/remarkFrontmatter'
+import rehypeTOC from '@jsdevtools/rehype-toc'
+import rehypeSlug from 'rehype-slug'
 
 const render = await unified()
     .use(remarkParse)
@@ -20,6 +22,15 @@ const render = await unified()
         themes: {
             light: 'vitesse-light',
             dark: 'vitesse-dark',
+        },
+    })
+    .use(rehypeSlug)
+    .use(rehypeTOC, {
+        headings: ['h1', 'h2'], // Only include <h1> and <h2> headings in the TOC
+        cssClasses: {
+            toc: 'toc hidden', // Change the CSS class for the TOC
+            list: 'px-8 leading-6 fixed z-20 top-[3.8125rem] bottom-0 left-0 w-[19.5rem] py-10 overflow-y-auto',
+            link: 'block py-1 font-medium', // Change the CSS class for links in the TOC
         },
     })
     .use(rehypeStringify)
