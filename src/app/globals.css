@@ -8,6 +8,25 @@
     }
 }
 
+@layer components {
+    .border-gradient {
+        @apply relative;
+
+        &::after {
+            content: '';
+            @apply absolute left-1/2 bottom-0 w-[130%] h-[1px];
+            /* h-1 表示边框高度，可以根据需要调整 */
+            transform: translateX(-50%);
+            background: linear-gradient(
+                to right,
+                rgba(124, 165, 255, 0) 0%,
+                rgba(0, 120, 231, 1) 50%,
+                rgba(124, 181, 255, 0) 100%
+            );
+        }
+    }
+}
+
 #root {
     max-width: 64rem;
 }
