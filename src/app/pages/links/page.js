@@ -13,6 +13,12 @@ export default function () {
                 <div className='mb-8 w-full'>
                     <div>
                         <div className='markdown-body text-base leading-7 text-gray-700 dark:text-slate-300 px-0'>
+                            <p>
+                                谢绝通过网站的新友链申请。旧友链添加请按原联系方式添加。
+                            </p>
+                            <p>
+                                如果和我比较熟的话也可以直接给我发消息（QQ/TG）加啦（
+                            </p>
                             <div className='links max-w-5xl mx-auto px-8'>
                                 <ul className='flex flex-wrap gap-5'>
                                     {projects.map((link, i) => (
