@@ -29,7 +29,7 @@ export default function () {
                                             <a
                                                 href={link.link}
                                                 target='_blank'
-                                                className='block flex items-center gap-3'
+                                                className='flex items-center gap-3'
                                             >
                                                 <img
                                                     alt='avatar of Ohmyga'
