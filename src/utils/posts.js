@@ -35,9 +35,11 @@ const render = await unified()
     })
     .use(rehypeStringify)
 
-export async function getPosts(
-    directoryPath = path.join(process.cwd(), 'posts'),
-) {
+export async function getPosts(type = 'posts') {
+    const directoryPath = path.join(
+        process.cwd(),
+        type === 'posts' ? 'posts' : 'pages',
+    )
     try {
         const files = await fs.readdir(directoryPath)
 
@@ -60,9 +62,13 @@ export async function getPosts(
     }
 }
 
-export const getPostInfo = async slug => {
+export const getPostInfo = async (slug, type = 'posts') => {
     const postMarkdown = await read(
-        path.resolve(process.cwd(), 'posts', slug + '.md'),
+        path.resolve(
+            process.cwd(),
+            type === 'posts' ? 'posts' : 'pages',
+            slug + '.md',
+        ),
         'utf8',
     )
 
