@@ -1,6 +1,7 @@
 const config = {
     global: {
         title: 'Adkinsm Home',
+        author: 'Adkinsm',
         description: 'A Student from China',
         nav: [
             { name: 'Home', link: '/' },

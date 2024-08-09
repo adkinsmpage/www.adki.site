@@ -3,18 +3,16 @@
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import useDarkMode from '@/utils/hooks/useDarkMode'
-import { store } from '@/utils/state'
-import { useSnapshot } from 'valtio'
+import config from 'configJS'
 
 export default function HeaderNav() {
-    const { navItems } = useSnapshot(store)
     const pathname = usePathname()
     const [_isDarkMode, _setIsDarkMode] = useDarkMode()
 
     return (
         <div className=''>
             <div className='fixed top-6 inset-x-0 flex justify-center items-center gap-8 w-fit mx-auto px-8 rounded-3xl bg-white/70 dark:bg-black/45 backdrop-blur-lg backdrop-saturate-150 border border-transparent shadow-sm z-50'>
-                {navItems.map((item, i) => (
+                {config.global.nav.map((item, i) => (
                     <Link
                         key={i}
                         href={item.link}

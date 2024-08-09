@@ -2,6 +2,7 @@ import '@/app/page.css'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 import { getPosts } from '@/utils/posts'
+import config from 'configJS'
 
 export default async function Page() {
     const data = await getPosts()
@@ -21,7 +22,7 @@ export default async function Page() {
                         </mark>
                     </h2>
                     <p className='mt-2 text-lg leading-8 text-gray-600 dark:text-slate-300'>
-                        Some posts by Adkimsm, usually written in Chinese
+                        {config.posts.description}
                     </p>
                 </div>
                 <div className='mx-auto mt-10 grid grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-2'>
