@@ -2,6 +2,7 @@
 
 import '@/app/page.css'
 import '@/assets/css/markdown.css'
+import Links from '@/app/pages/[slug]/_links'
 import dayjs from 'dayjs'
 import { getPostInfo, getPosts } from '@/utils/posts'
 
@@ -30,10 +31,19 @@ export default async function Page({ params }) {
                 </div>
                 <div className='mb-8 w-full'>
                     <div>
-                        <div
-                            className='markdown-body text-base leading-7 text-gray-700 dark:text-slate-300 px-0'
-                            dangerouslySetInnerHTML={{ __html: String(post) }}
-                        ></div>
+                        {slug === 'links' ? (
+                            <Links
+                                links={post.data.matter.links}
+                                postContent={post}
+                            />
+                        ) : (
+                            <div
+                                className='markdown-body text-base leading-7 text-gray-700 dark:text-slate-300 px-0'
+                                dangerouslySetInnerHTML={{
+                                    __html: String(post),
+                                }}
+                            ></div>
+                        )}
                     </div>
                 </div>
             </div>
