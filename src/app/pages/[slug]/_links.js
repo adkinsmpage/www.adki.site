@@ -5,7 +5,7 @@ export default function (props) {
             <div
                 dangerouslySetInnerHTML={{ __html: String(postContent) }}
             ></div>
-            <div className='links max-w-5xl mx-auto px-8'>
+            <div className='links mx-auto'>
                 <ul className='flex flex-wrap gap-5'>
                     {links.map((link, i) => (
                         <li
