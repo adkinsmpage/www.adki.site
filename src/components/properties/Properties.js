@@ -11,7 +11,7 @@ import './Properties.css'
 export default function Properties({ Properties }) {
     return (
         <div className='property-wrapper'>
-            {Properties.content.map((item, i) => (
+            {Properties.map((item, i) => (
                 <div
                     className='card rounded-lg px-5 py-3 my-2 mr-4 inline-block'
                     key={i}
