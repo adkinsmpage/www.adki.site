@@ -4,6 +4,7 @@ import '@/app/page.css'
 import '@/assets/css/markdown.css'
 import dayjs from 'dayjs'
 import { getPostInfo, getPosts } from '@/utils/posts'
+import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
     const slugs = await getPosts()
@@ -13,6 +14,8 @@ export async function generateStaticParams() {
 export default async function Page({ params }) {
     const { slug } = params
     const post = await getPostInfo(slug)
+
+    if (!post) notFound()
 
     return (
         <div className='mx-auto relative isolate overflow-hidden py-12 sm:py-12 lg:overflow-visible px-7 flex items-center flex-col'>

@@ -57,22 +57,25 @@ export async function getPosts(type = 'posts') {
 
         return fileDetails
     } catch (err) {
-        console.error('Error reading directory:', err)
-        return []
+        return false
     }
 }
 
 export const getPostInfo = async (slug, type = 'posts') => {
-    const postMarkdown = await read(
-        path.resolve(
-            process.cwd(),
-            type === 'posts' ? 'posts' : 'pages',
-            slug + '.md',
-        ),
-        'utf8',
-    )
+    try {
+        const postMarkdown = await read(
+            path.resolve(
+                process.cwd(),
+                type === 'posts' ? 'posts' : 'pages',
+                slug + '.md',
+            ),
+            'utf8',
+        )
 
-    const content = await render.process(postMarkdown)
+        const content = await render.process(postMarkdown)
 
-    return content
+        return content
+    } catch {
+        return false
+    }
 }
