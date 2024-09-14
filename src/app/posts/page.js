@@ -31,7 +31,7 @@ export default async function Page() {
                             key={i}
                             href={`/posts/${post.file.replace('.md', '')}`}
                         >
-                            <div className='overflow-hidden rounded-xl border border-gray-200 bg-gray-50/45 dark:bg-gray-900/45 dark:text-white/80 transition-all hover:scale-[1.03] ease-linear hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.17)]'>
+                            <div className='overflow-hidden rounded-xl border border-transparent bg-gray-50/45 dark:bg-gray-900/45 dark:text-white/80 transition-all hover:scale-[1.03] ease-linear shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.17)]'>
                                 <div className='flex items-center gap-x-4 border-b border-gray-900/5 p-6'>
                                     <div className='text-sm font-medium leading-6 text-gray-900 dark:text-slate-300'>
                                         {post.frontmatter.title}
