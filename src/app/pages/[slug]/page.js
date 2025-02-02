@@ -2,7 +2,7 @@
 
 import '@/app/page.css'
 import '@/assets/css/markdown.css'
-import Links from '@/app/pages/[slug]/_links'
+import Links from '@/app/pages/[slug]/links'
 import dayjs from 'dayjs'
 import { getPostInfo, getPosts } from '@/utils/posts'
 import { notFound } from 'next/navigation'

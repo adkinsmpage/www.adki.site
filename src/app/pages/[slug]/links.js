@@ -1,10 +1,9 @@
 export default function (props) {
     const { links, postContent } = props
+
+    console.log(links)
     return (
         <div className='markdown-body text-base leading-7 text-gray-700 dark:text-slate-300 px-0'>
-            <div
-                dangerouslySetInnerHTML={{ __html: String(postContent) }}
-            ></div>
             <div className='links mx-auto'>
                 <ul className='flex flex-wrap gap-5'>
                     {links.map((link, i) => (
@@ -37,6 +36,12 @@ export default function (props) {
                     ))}
                 </ul>
             </div>
+            <div
+                className='text-base leading-7 text-gray-700 dark:text-slate-300 px-0'
+                dangerouslySetInnerHTML={{
+                    __html: String(postContent),
+                }}
+            ></div>
         </div>
     )
 }
