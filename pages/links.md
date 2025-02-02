@@ -12,6 +12,11 @@ links:
     link: 'https://blog.crrashh.com'
     img: 'https://i.cdn.crrashh.com/avatar.jpg'
     description: 以万象之不息，致不息之万象。
+  - 
+    title: 空之御の小窝
+    link: 'https://blog.konyu.top'
+    img: 'https://upyunimage.konyu.top/img/avatar.png'
+    description: 互联网边缘的无名小卒
 ---
 
 旧友链多已丢失，请循原联系方式联系站长嘞
