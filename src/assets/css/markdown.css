@@ -36,7 +36,6 @@ html.dark {
 .markdown-body {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    background: var(--smc-bg-color);
     color: var(--smc-c-text);
     /*font-family: var(--smc-font-sans);*/
     font-size: 1.25rem;
@@ -123,15 +122,11 @@ html.dark {
     padding: 3px 6px;
     font-size: 1rem;
     color: var(--smc-c-text-light);
-    background: var(--smc-code-bg-color);
     border-radius: 3px;
 }
 
 .markdown-body pre {
-    margin-top: 0;
-    margin-bottom: 0;
     overflow-wrap: normal;
-    padding: 1rem;
     overflow-x: auto;
     border-radius: 3px;
 }
@@ -237,8 +232,8 @@ html.dark {
     text-decoration: none;
 }
 
-.markdown-body ul,
-.markdown-body ol {
+.markdown-body ul:not(.markdown-body .links ul),
+.markdown-body ol:not(.markdown-body .links ul) {
     padding-left: 2em;
 }
 
@@ -450,4 +445,8 @@ html.dark {
 .markdown-body .full-commit .btn-outline:not(:disabled):hover {
     color: #005cc5;
     border-color: #005cc5;
+}
+
+.shiki {
+    background-color: transparent !important;
 }

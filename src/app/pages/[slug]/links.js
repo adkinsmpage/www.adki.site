@@ -1,21 +1,38 @@
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+}
+
 export default function (props) {
     const { links, postContent } = props
 
-    console.log(links)
     return (
-        <div className='markdown-body text-base leading-7 text-gray-700 dark:text-slate-300 px-0'>
+        <>
+            <div
+                className='markdown-body text-base leading-7 text-gray-700 dark:text-slate-300 px-0'
+                dangerouslySetInnerHTML={{
+                    __html: String(postContent),
+                }}
+            ></div>
             <div className='links mx-auto'>
-                <ul className='flex flex-wrap gap-5'>
+                <div className='divide-y divide-gray-200 overflow-hidden rounded-lg shadow-sm sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0'>
                     {links.map((link, i) => (
-                        <li
+                        <div
                             key={i}
-                            className='transition-all border duration-300 rounded-2xl px-4 border-transparent hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] dark:hover:shadow-[0_30px_60px_-15px_rgba(255,255,255,0.3)]'
+                            className={classNames(
+                                i === 0
+                                    ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none'
+                                    : '',
+                                i === 1 ? 'sm:rounded-tr-lg' : '',
+                                i === links.length - 2
+                                    ? 'sm:rounded-bl-lg'
+                                    : '',
+                                i === links.length - 1
+                                    ? 'rounded-br-lg rounded-bl-lg sm:rounded-bl-none'
+                                    : '',
+                                'group relative p-6 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-inset',
+                            )}
                         >
-                            <a
-                                href={link.link}
-                                target='_blank'
-                                className='flex items-center gap-3'
-                            >
+                            <div>
                                 <img
                                     alt={link.title}
                                     loading='lazy'
@@ -23,25 +40,32 @@ export default function (props) {
                                     height='100'
                                     decoding='async'
                                     data-nimg='1'
-                                    className='hover:rotate-[360deg] inline-block w-8 rounded-full'
+                                    className='hover:rotate-[360deg] rounded-full'
                                     src={link.img}
                                 />
-                                <span className='font-bold'>{link.title}</span>
-                                <span>|</span>
-                                <span className='font-bold'>
+                            </div>
+                            <div className='mt-8'>
+                                <h3 className='text-base font-semibold text-gray-900'>
+                                    <a
+                                        href={link.link}
+                                        className='focus:outline-hidden'
+                                    >
+                                        {/* Extend touch target to entire panel */}
+                                        <span
+                                            aria-hidden='true'
+                                            className='absolute inset-0'
+                                        />
+                                        {link.title}
+                                    </a>
+                                </h3>
+                                <p className='mt-2 text-sm text-gray-500'>
                                     {link.description}
-                                </span>
-                            </a>
-                        </li>
+                                </p>
+                            </div>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </div>
-            <div
-                className='text-base leading-7 text-gray-700 dark:text-slate-300 px-0'
-                dangerouslySetInnerHTML={{
-                    __html: String(postContent),
-                }}
-            ></div>
-        </div>
+        </>
     )
 }

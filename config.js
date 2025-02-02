@@ -6,7 +6,7 @@ const config = {
         nav: [
             { name: 'Home', link: '/' },
             { name: 'Posts', link: '/posts' },
-            //{ name: 'Links', link: '/pages/links' },
+            { name: 'Links', link: '/pages/links' },
             { name: 'Tweets', link: '/pages/tweets' },
             { name: 'About', link: '/pages/about' },
         ]

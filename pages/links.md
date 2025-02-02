@@ -15,3 +15,14 @@ links:
 ---
 
 旧友链多已丢失，请循原联系方式联系站长嘞
+
+鉴于本站域名信息更换频繁，不是熟人的站点可能不添加哦（
+
+本站信息：
+
+```yaml
+title: Adkinsm Home
+description: 少年不惧岁月长
+img: https://www.adkinsm.asia/avatar.jpg
+link: https://www.adkinsm.asia
+```
