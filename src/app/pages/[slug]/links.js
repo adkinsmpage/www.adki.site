@@ -16,53 +16,45 @@ export default function (props) {
             <div className='links mx-auto'>
                 <div className='divide-y divide-gray-200 overflow-hidden rounded-lg shadow-sm sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0'>
                     {links.map((link, i) => (
-                        <div
-                            key={i}
-                            className={classNames(
-                                i === 0
-                                    ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none'
-                                    : '',
-                                i === 1 ? 'sm:rounded-tr-lg' : '',
-                                i === links.length - 2
-                                    ? 'sm:rounded-bl-lg'
-                                    : '',
-                                i === links.length - 1
-                                    ? 'rounded-br-lg rounded-bl-lg sm:rounded-bl-none'
-                                    : '',
-                                'group relative p-6 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-inset',
-                            )}
-                        >
-                            <div>
-                                <img
-                                    alt={link.title}
-                                    loading='lazy'
-                                    width='100'
-                                    height='100'
-                                    decoding='async'
-                                    data-nimg='1'
-                                    className='hover:rotate-[360deg] rounded-full'
-                                    src={link.img}
-                                />
-                            </div>
-                            <div className='mt-8'>
-                                <h3 className='text-base font-semibold text-gray-900'>
-                                    <a
-                                        href={link.link}
-                                        className='focus:outline-hidden'
-                                    >
-                                        {/* Extend touch target to entire panel */}
-                                        <span
-                                            aria-hidden='true'
-                                            className='absolute inset-0'
-                                        />
+                        <a href={link.link} className='focus:outline-hidden'>
+                            <div
+                                key={i}
+                                className={classNames(
+                                    i === 0
+                                        ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none'
+                                        : '',
+                                    i === 1 ? 'sm:rounded-tr-lg' : '',
+                                    i === links.length - 2
+                                        ? 'sm:rounded-bl-lg'
+                                        : '',
+                                    i === links.length - 1
+                                        ? 'rounded-br-lg rounded-bl-lg sm:rounded-bl-none'
+                                        : '',
+                                    'group relative p-6 focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-inset',
+                                )}
+                            >
+                                <div>
+                                    <img
+                                        alt={link.title}
+                                        loading='lazy'
+                                        width='100'
+                                        height='100'
+                                        decoding='async'
+                                        data-nimg='1'
+                                        className='hover:rotate-[360deg] rounded-full'
+                                        src={link.img}
+                                    />
+                                </div>
+                                <div className='mt-8'>
+                                    <h3 className='text-base font-semibold text-gray-900'>
                                         {link.title}
-                                    </a>
-                                </h3>
-                                <p className='mt-2 text-sm text-gray-500'>
-                                    {link.description}
-                                </p>
+                                    </h3>
+                                    <p className='mt-2 text-sm text-gray-500'>
+                                        {link.description}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     ))}
                 </div>
             </div>
