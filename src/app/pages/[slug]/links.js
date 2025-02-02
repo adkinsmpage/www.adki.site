@@ -16,7 +16,11 @@ export default function (props) {
             <div className='links mx-auto'>
                 <div className='divide-y divide-gray-200 overflow-hidden rounded-lg shadow-sm sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0'>
                     {links.map((link, i) => (
-                        <a href={link.link} className='focus:outline-hidden'>
+                        <a
+                            target='_blank'
+                            href={link.link}
+                            className='focus:outline-hidden'
+                        >
                             <div
                                 key={i}
                                 className={classNames(
