@@ -11,11 +11,9 @@
     "commit": "yarn beautify && git add . && cz"
   },
   "dependencies": {
-    "@ctrl/tinycolor": "^4.1.0",
     "@explosions/fireworks": "^0.0.2",
     "@fancyapps/ui": "^5.0.36",
     "@headlessui/react": "^2.1.1",
-    "@heroicons/react": "^2.1.1",
     "@jsdevtools/rehype-toc": "^3.0.2",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
