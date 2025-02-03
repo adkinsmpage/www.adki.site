@@ -16,7 +16,7 @@ export default function HeaderNav() {
                 <Popover>
                     <PopoverButton className='outline-0 z-30 rounded-full border border-transparent lg:hidden'>
                         <svg
-                            class='size-6 stroke-black dark:stroke-white'
+                            className='size-6 stroke-black dark:stroke-white'
                             fill='none'
                         >
                             <path
