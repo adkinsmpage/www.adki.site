@@ -34,7 +34,7 @@ export default async function Page() {
                                             !mastTweet.in_reply_to_id ? (
                                                 <div
                                                     key={eventIdx}
-                                                    className='text-gray-900 dark:text-neutral-200 first:pt-0 last:pb-0 py-5 flex flex-col min-w-0 relative tracking-wider font-extralight width-full transition-transform duration-700 ease-out hover:scale-[1.03] leading-relaxed'
+                                                    className='text-gray-900 dark:text-neutral-200 first:pt-0 last:pb-0 flex flex-col min-w-0 relative tracking-wider font-extralight width-full transition-transform duration-700 ease-out hover:scale-[1.03] leading-relaxed'
                                                 >
                                                     <div
                                                         className='text-2xl markdown-body'
@@ -44,9 +44,10 @@ export default async function Page() {
                                                             ),
                                                         }}
                                                     ></div>
-                                                    {mastTweet.media_attachments ? (
+                                                    {mastTweet.media_attachments
+                                                        .length !== 0 ? (
                                                         <Fancybox>
-                                                            <div className='flex'>
+                                                            <div className='flex my-5'>
                                                                 {mastTweet.media_attachments.map(
                                                                     (
                                                                         image,
@@ -75,7 +76,7 @@ export default async function Page() {
                                                             </div>
                                                         </Fancybox>
                                                     ) : null}
-                                                    <div className='text-sm justify-end flex flex-wrap gap-x-2 gap-y-4'>
+                                                    <div className='text-sm justify-end flex flex-wrap gap-x-2 gap-y-4 mb-5'>
                                                         <span className='inline-flex items-center rounded-md bg-green-50 dark:bg-green-500/10 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-400'>
                                                             <time
                                                                 dateTime={
