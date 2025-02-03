@@ -1,5 +1,6 @@
 import '@/app/page.css'
 import '@/assets/css/markdown.css'
+import Fancybox from '@/components/fancybox'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 
@@ -43,6 +44,37 @@ export default async function Page() {
                                                             ),
                                                         }}
                                                     ></div>
+                                                    {mastTweet.media_attachments ? (
+                                                        <Fancybox>
+                                                            <div className='flex'>
+                                                                {mastTweet.media_attachments.map(
+                                                                    (
+                                                                        image,
+                                                                        item,
+                                                                    ) => (
+                                                                        <a
+                                                                            key={
+                                                                                item
+                                                                            }
+                                                                            data-fancybox='gallery'
+                                                                            href={
+                                                                                image.url
+                                                                            }
+                                                                        >
+                                                                            <img
+                                                                                src={
+                                                                                    image.preview_url
+                                                                                }
+                                                                                className='!m-0'
+                                                                                width='200'
+                                                                                height='150'
+                                                                            />
+                                                                        </a>
+                                                                    ),
+                                                                )}
+                                                            </div>
+                                                        </Fancybox>
+                                                    ) : null}
                                                     <div className='text-sm justify-end flex flex-wrap gap-x-2 gap-y-4'>
                                                         <span className='inline-flex items-center rounded-md bg-green-50 dark:bg-green-500/10 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-400'>
                                                             <time
