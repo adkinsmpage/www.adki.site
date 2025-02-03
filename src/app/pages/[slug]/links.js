@@ -14,13 +14,13 @@ export default function (props) {
                 }}
             ></div>
             <div className='links mx-auto'>
-                <div className='divide-y divide-gray-200 overflow-hidden rounded-lg shadow-sm sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0'>
+                <div className='overflow-hidden rounded-lg shadow-sm sm:grid sm:grid-cols-2'>
                     {links.map((link, i) => (
                         <a
                             key={i}
                             target='_blank'
                             href={link.link}
-                            className='focus:outline-hidden'
+                            className='group focus:outline-hidden hover:opacity-75'
                         >
                             <div
                                 className={classNames(
@@ -45,7 +45,7 @@ export default function (props) {
                                         height='100'
                                         decoding='async'
                                         data-nimg='1'
-                                        className='hover:rotate-[360deg] rounded-full'
+                                        className='group-hover:rotate-[360deg] group-hover:saturate-150 group-hover:contrast-125 group-hover:scale-[1.4] rounded-full'
                                         src={link.img}
                                     />
                                 </div>
