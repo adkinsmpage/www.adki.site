@@ -17,12 +17,12 @@ export default function (props) {
                 <div className='divide-y divide-gray-200 overflow-hidden rounded-lg shadow-sm sm:grid sm:grid-cols-2 sm:gap-px sm:divide-y-0'>
                     {links.map((link, i) => (
                         <a
+                            key={i}
                             target='_blank'
                             href={link.link}
                             className='focus:outline-hidden'
                         >
                             <div
-                                key={i}
                                 className={classNames(
                                     i === 0
                                         ? 'rounded-tl-lg rounded-tr-lg sm:rounded-tr-none'
