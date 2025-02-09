@@ -24,7 +24,7 @@ function replaceEmojisWithImages(article, emojis) {
 async function fetchTweets() {
     const response = await fetch(
         `${config.tweets.mastodonInstance}/api/v1/accounts/110492424833061986/statuses`,
-        { cache: 'no-cache' },
+        { next: { revalidate: 0 } },
     )
     return response.json()
 }
@@ -32,13 +32,12 @@ async function fetchTweets() {
 async function fetchEmojis() {
     const response = await fetch(
         `${config.tweets.mastodonInstance}/api/v1/custom_emojis`,
-        { cache: 'no-cache' },
+        { next: { revalidate: 60 } },
     )
     return response.json()
 }
 
 export default async function Page() {
-    const regexEmoji = /:\w+:/g
     const [MastJSON, emojiJSON] = await Promise.all([
         fetchTweets(),
         fetchEmojis(),
@@ -73,14 +72,10 @@ export default async function Page() {
                                                     <div
                                                         className='text-2xl markdown-body'
                                                         dangerouslySetInnerHTML={{
-                                                            __html: regexEmoji.test(
+                                                            __html: replaceEmojisWithImages(
                                                                 mastTweet.content.toString(),
-                                                            )
-                                                                ? replaceEmojisWithImages(
-                                                                      mastTweet.content.toString(),
-                                                                      emojiJSON,
-                                                                  )
-                                                                : mastTweet.content.toString(),
+                                                                emojiJSON,
+                                                            ),
                                                         }}
                                                     />
                                                     {mastTweet.media_attachments
