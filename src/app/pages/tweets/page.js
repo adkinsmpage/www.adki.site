@@ -122,7 +122,7 @@ export default async function Page() {
                                                             >
                                                                 {dayjs(
                                                                     mastTweet.created_at,
-                                                                ).format(
+                                                                ).add(8, "hour").format(
                                                                     'YYYY-MM-DD HH:mm:ss',
                                                                 )}
                                                             </time>
