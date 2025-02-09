@@ -11,6 +11,7 @@
     "commit": "yarn beautify && git add . && cz"
   },
   "dependencies": {
+    "@ctrl/tinycolor": "^4.1.0",
     "@explosions/fireworks": "^0.0.2",
     "@fancyapps/ui": "^5.0.36",
     "@fontsource/noto-color-emoji": "^5.1.1",
