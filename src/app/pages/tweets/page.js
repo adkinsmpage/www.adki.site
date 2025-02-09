@@ -16,7 +16,7 @@ function replaceEmojisWithImages(article, emojis) {
         const shortcode = match.slice(1, -1)
         const url = findUrlByShortcode(emojis, shortcode)
         return url
-            ? `<img class="!inline" src="${url}" alt="${shortcode}" />`
+            ? `<img class="!inline h-6 w-6" src="${url}" alt="${shortcode}" />`
             : match
     })
 }
