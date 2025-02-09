@@ -3,6 +3,7 @@ import '@/assets/css/markdown.css'
 import Fancybox from '@/components/fancybox'
 import dayjs from 'dayjs'
 import Link from 'next/link'
+import config from 'configJS'
 
 function findUrlByShortcode(array, shortcode) {
     const item = array.find(item => item.shortcode === shortcode)
@@ -22,13 +23,15 @@ function replaceEmojisWithImages(article, emojis) {
 
 async function fetchTweets() {
     const response = await fetch(
-        'https://o3o.ca/api/v1/accounts/110492424833061986/statuses',
+        `${config.tweets.mastodonInstance}/api/v1/accounts/110492424833061986/statuses`,
     )
     return response.json()
 }
 
 async function fetchEmojis() {
-    const response = await fetch('https://o3o.ca/api/v1/custom_emojis')
+    const response = await fetch(
+        `${config.tweets.mastodonInstance}/api/v1/custom_emojis`,
+    )
     return response.json()
 }
 

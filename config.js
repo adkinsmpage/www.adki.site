@@ -74,6 +74,9 @@ const config = {
     },
     posts: {
         description: 'Some posts by Adkimsm, usually written in Chinese'
+    },
+    tweets: {
+        mastodonInstance: "https://o3o.ca"
     }
 }
 
