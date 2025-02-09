@@ -24,6 +24,7 @@ function replaceEmojisWithImages(article, emojis) {
 async function fetchTweets() {
     const response = await fetch(
         `${config.tweets.mastodonInstance}/api/v1/accounts/110492424833061986/statuses`,
+        { cache: 'no-cache' },
     )
     return response.json()
 }
@@ -31,6 +32,7 @@ async function fetchTweets() {
 async function fetchEmojis() {
     const response = await fetch(
         `${config.tweets.mastodonInstance}/api/v1/custom_emojis`,
+        { cache: 'no-cache' },
     )
     return response.json()
 }
@@ -122,9 +124,14 @@ export default async function Page() {
                                                             >
                                                                 {dayjs(
                                                                     mastTweet.created_at,
-                                                                ).add(8, "hour").format(
-                                                                    'YYYY-MM-DD HH:mm:ss',
-                                                                )}
+                                                                )
+                                                                    .add(
+                                                                        8,
+                                                                        'hour',
+                                                                    )
+                                                                    .format(
+                                                                        'YYYY-MM-DD HH:mm:ss',
+                                                                    )}
                                                             </time>
                                                         </span>
                                                         {mastTweet.replies_count !==
