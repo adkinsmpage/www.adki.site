@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google'
+import '@fontsource/noto-color-emoji'
 import './globals.css'
 import Providers from './providers'
 import HeaderNav from '@/components/header/Header'
