@@ -1,33 +1,34 @@
-'use client'
-
 import '@/app/page.css'
 import '@/app/waves.min.css'
 import Properties from '@/components/properties/Properties'
-import { useEffect } from 'react'
 import dynamic from 'next/dynamic'
-import { useSnapshot } from 'valtio'
-import { store } from '@/utils/state'
 import config from 'configJS'
+import WavesInitializer from '@/components/WavesInitializer'
 
 const TypewriterEffect = dynamic(() => import('@/components/typeWriter'), {
     ssr: false,
 })
 
-export default function Home() {
-    const { hitokoto } = useSnapshot(store)
+async function getHitokoto() {
+    try {
+        const response = await fetch('https://v1.hitokoto.cn', {
+            next: { revalidate: 3600 },
+        })
+        return await response.json()
+    } catch (error) {
+        console.error('Fetch hitokoto failed:', error)
+        return { hitokoto: '求知若饥，虚心若愚' }
+    }
+}
+
+export default async function Home() {
+    const { hitokoto } = await getHitokoto()
     const words = config.home.banner.typeWriter
-
-    useEffect(() => {
-        fetch('https://v1.hitokoto.cn')
-            .then(response => response.json())
-            .then(data => (store.hitokoto = data.hitokoto))
-            .catch(console.error)
-
-        import('@/app/waves.min.js').then(Waves => Waves.init())
-    }, [])
 
     return (
         <div className='mx-auto py-32 sm:py-48 lg:py-56'>
+            <WavesInitializer />
+
             <div className='text-center'>
                 <div className='banner'>
                     <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-slate-300'>
