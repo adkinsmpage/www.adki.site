@@ -4,11 +4,36 @@ import Fancybox from '@/components/fancybox'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 
+function findUrlByShortcode(array, shortcode) {
+    const item = array.find(item => item.shortcode === shortcode)
+    return item ? item.url : null
+}
+
+function replaceEmojisWithImages(article, emojis) {
+    const regex = /:\w+:/g
+
+    const replacedArticle = article.replace(regex, match => {
+        const shortcode = match.slice(1, -1)
+
+        const url = findUrlByShortcode(emojis, shortcode)
+
+        return url
+            ? `<img class="!inline" src="${url}" alt="${shortcode}" />`
+            : match
+    })
+
+    return replacedArticle
+}
+
 export default async function Page() {
+    const regexEmoji = /:\w+:/g
     const tweets = await fetch(
         'https://o3o.ca/api/v1/accounts/110492424833061986/statuses',
     )
     const MastJSON = await tweets.json()
+
+    const emoji = await fetch('https://o3o.ca/api/v1/custom_emojis')
+    const emojiJSON = await emoji.json()
 
     return (
         <div className='mx-auto relative isolate overflow-hidden py-12 sm:py-12 lg:overflow-visible px-7 flex items-center flex-col'>
@@ -39,9 +64,18 @@ export default async function Page() {
                                                     <div
                                                         className='text-2xl markdown-body'
                                                         dangerouslySetInnerHTML={{
-                                                            __html: String(
-                                                                mastTweet.content,
-                                                            ),
+                                                            __html: mastTweet.content
+                                                                .toString()
+                                                                .match(
+                                                                    regexEmoji,
+                                                                )
+                                                                ? replaceEmojisWithImages(
+                                                                      mastTweet.content.toString(),
+                                                                      emojiJSON,
+                                                                  )
+                                                                : String(
+                                                                      mastTweet.content,
+                                                                  ),
                                                         }}
                                                     ></div>
                                                     {mastTweet.media_attachments
