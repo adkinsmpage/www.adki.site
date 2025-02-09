@@ -8,12 +8,6 @@ import Fireworks from '@/components/fireworks'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-    title: 'Adkinsm Home',
-    description:
-        'Front-end Developer / Open Sourceror / Blogger / Android Player',
-}
-
 export default function RootLayout({ children }) {
     return (
         <html lang='en' className={`scroll-smooth ${inter.className}`}>
