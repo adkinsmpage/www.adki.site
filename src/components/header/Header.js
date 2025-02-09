@@ -21,9 +21,9 @@ export default function HeaderNav() {
                         >
                             <path
                                 d='M4 8h16M4 16h16'
-                                stroke-width='2'
-                                stroke-linecap='round'
-                                stroke-linejoin='round'
+                                strokeWidth='2'
+                                strokeLinecap='round'
+                                strokeLinejoin='round'
                             ></path>
                         </svg>
                     </PopoverButton>
