@@ -6,6 +6,8 @@ import Links from '@/app/pages/[slug]/links'
 import dayjs from 'dayjs'
 import { getPostInfo, getPosts } from '@/utils/posts'
 import { notFound } from 'next/navigation'
+import config from 'configJS'
+import { Waline } from '@/components/comments/waline'
 
 export async function generateStaticParams() {
     const slugs = await getPosts('pages')
@@ -49,6 +51,7 @@ export default async function Page({ params }) {
                                 }}
                             ></div>
                         )}
+                        {config.comments.waline.enable && <Waline />}
                     </div>
                 </div>
             </div>

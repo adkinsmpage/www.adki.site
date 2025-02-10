@@ -77,6 +77,12 @@ const config = {
     },
     tweets: {
         mastodonInstance: "https://o3o.ca"
+    },
+    comments: {
+        waline: {
+            enable: true,
+            serverURL: "https://talk-blog.vercel.app/"
+        }
     }
 }
 

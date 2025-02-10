@@ -5,6 +5,8 @@ import '@/assets/css/markdown.css'
 import dayjs from 'dayjs'
 import { getPostInfo, getPosts } from '@/utils/posts'
 import { notFound } from 'next/navigation'
+import { Waline } from '@/components/comments/waline'
+import config from 'configJS'
 
 export async function generateStaticParams() {
     const slugs = await getPosts()
@@ -37,6 +39,7 @@ export default async function Page({ params }) {
                             className='markdown-body text-base leading-7 text-gray-700 dark:text-slate-300 px-0'
                             dangerouslySetInnerHTML={{ __html: String(post) }}
                         ></div>
+                        {config.comments.waline.enable && <Waline />}
                     </div>
                 </div>
             </div>
