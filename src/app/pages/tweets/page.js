@@ -22,19 +22,27 @@ function replaceEmojisWithImages(article, emojis) {
 }
 
 async function fetchTweets() {
-    const response = await fetch(
-        `${config.tweets.mastodonInstance}/api/v1/accounts/110492424833061986/statuses`,
-        { next: { revalidate: 0 } },
-    )
-    return response.json()
+    try {
+        const response = await fetch(
+            `${config.tweets.mastodonInstance}/api/v1/accounts/110492424833061986/statuses`,
+            { next: { revalidate: 0 } },
+        )
+        return response.json()
+    } catch {
+        console.error('Fetch Tweets Error')
+    }
 }
 
 async function fetchEmojis() {
-    const response = await fetch(
-        `${config.tweets.mastodonInstance}/api/v1/custom_emojis`,
-        { next: { revalidate: 60 } },
-    )
-    return response.json()
+    try {
+        const response = await fetch(
+            `${config.tweets.mastodonInstance}/api/v1/custom_emojis`,
+            { next: { revalidate: 60 } },
+        )
+        return response.json()
+    } catch {
+        console.error('Fetch Emoji Error')
+    }
 }
 
 export default async function Page() {
@@ -62,102 +70,109 @@ export default async function Page() {
                         <div className='markdown-body w-full max-w-6xl mx-auto space-y-16 sm:space-y-20'>
                             <div className='flow-root'>
                                 <div className='-mb-8 divide-y divide-gray-900 dark:divide-neutral-200'>
-                                    {MastJSON.map(
-                                        (mastTweet, eventIdx) =>
-                                            !mastTweet.in_reply_to_id && (
-                                                <div
-                                                    key={eventIdx}
-                                                    className='text-gray-900 dark:text-neutral-200 first:pt-0 last:pb-0 flex flex-col min-w-0 relative tracking-wider font-extralight width-full transition-transform duration-700 ease-out hover:scale-[1.03] leading-relaxed'
-                                                >
+                                    {!MastJSON ? (
+                                        <p>Loading Tweets Error.</p>
+                                    ) : (
+                                        MastJSON.map(
+                                            (mastTweet, eventIdx) =>
+                                                !mastTweet.in_reply_to_id && (
                                                     <div
-                                                        className='text-2xl markdown-body'
-                                                        dangerouslySetInnerHTML={{
-                                                            __html: replaceEmojisWithImages(
-                                                                mastTweet.content.toString(),
-                                                                emojiJSON,
-                                                            ),
-                                                        }}
-                                                    />
-                                                    {mastTweet.media_attachments
-                                                        .length > 0 && (
-                                                        <Fancybox>
-                                                            <div className='flex my-5'>
-                                                                {mastTweet.media_attachments.map(
-                                                                    (
-                                                                        image,
-                                                                        item,
-                                                                    ) => (
-                                                                        <a
-                                                                            key={
-                                                                                item
-                                                                            }
-                                                                            data-fancybox='gallery'
-                                                                            href={
-                                                                                image.url
-                                                                            }
-                                                                        >
-                                                                            <img
-                                                                                src={
-                                                                                    image.preview_url
+                                                        key={eventIdx}
+                                                        className='text-gray-900 dark:text-neutral-200 first:pt-0 last:pb-0 flex flex-col min-w-0 relative tracking-wider font-extralight width-full transition-transform duration-700 ease-out hover:scale-[1.03] leading-relaxed'
+                                                    >
+                                                        <div
+                                                            className='text-2xl markdown-body'
+                                                            dangerouslySetInnerHTML={{
+                                                                __html: replaceEmojisWithImages(
+                                                                    mastTweet.content.toString(),
+                                                                    emojiJSON,
+                                                                ),
+                                                            }}
+                                                        />
+                                                        {mastTweet
+                                                            .media_attachments
+                                                            .length > 0 && (
+                                                            <Fancybox>
+                                                                <div className='flex my-5'>
+                                                                    {mastTweet.media_attachments.map(
+                                                                        (
+                                                                            image,
+                                                                            item,
+                                                                        ) => (
+                                                                            <a
+                                                                                key={
+                                                                                    item
                                                                                 }
-                                                                                className='!m-0'
-                                                                                width='200'
-                                                                                height='150'
-                                                                            />
-                                                                        </a>
-                                                                    ),
-                                                                )}
-                                                            </div>
-                                                        </Fancybox>
-                                                    )}
-                                                    <div className='text-sm justify-end flex flex-wrap gap-x-2 gap-y-4 mb-5'>
-                                                        <span className='inline-flex items-center rounded-md bg-green-50 dark:bg-green-500/10 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-400'>
-                                                            <time
-                                                                dateTime={
-                                                                    mastTweet.created_at
-                                                                }
-                                                            >
-                                                                {dayjs(
-                                                                    mastTweet.created_at,
-                                                                )
-                                                                    .add(
-                                                                        8,
-                                                                        'hour',
-                                                                    )
-                                                                    .format(
-                                                                        'YYYY-MM-DD HH:mm:ss',
+                                                                                data-fancybox='gallery'
+                                                                                href={
+                                                                                    image.url
+                                                                                }
+                                                                            >
+                                                                                <img
+                                                                                    src={
+                                                                                        image.preview_url
+                                                                                    }
+                                                                                    className='!m-0'
+                                                                                    width='200'
+                                                                                    height='150'
+                                                                                />
+                                                                            </a>
+                                                                        ),
                                                                     )}
-                                                            </time>
-                                                        </span>
-                                                        {mastTweet.replies_count !==
-                                                            0 && (
-                                                            <span className='inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-400/10 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-400'>
-                                                                {
-                                                                    mastTweet.replies_count
-                                                                }{' '}
-                                                                条评论
-                                                            </span>
+                                                                </div>
+                                                            </Fancybox>
                                                         )}
-                                                        {mastTweet.favourites_count !==
-                                                            0 && (
-                                                            <span className='inline-flex items-center rounded-md bg-purple-50 dark:bg-purple-400/10 px-2 py-1 text-xs font-medium text-purple-700 dark:text-purple-400'>
-                                                                {
-                                                                    mastTweet.favourites_count
-                                                                }{' '}
-                                                                个赞
+                                                        <div className='text-sm justify-end flex flex-wrap gap-x-2 gap-y-4 mb-5'>
+                                                            <span className='inline-flex items-center rounded-md bg-green-50 dark:bg-green-500/10 px-2 py-1 text-xs font-medium text-green-700 dark:text-green-400'>
+                                                                <time
+                                                                    dateTime={
+                                                                        mastTweet.created_at
+                                                                    }
+                                                                >
+                                                                    {dayjs(
+                                                                        mastTweet.created_at,
+                                                                    )
+                                                                        .add(
+                                                                            8,
+                                                                            'hour',
+                                                                        )
+                                                                        .format(
+                                                                            'YYYY-MM-DD HH:mm:ss',
+                                                                        )}
+                                                                </time>
                                                             </span>
-                                                        )}
-                                                        <Link
-                                                            href={mastTweet.url}
-                                                            target='_blank'
-                                                        >
-                                                            <span className='inline-flex items-center rounded-md bg-gray-50 dark:bg-gray-400/10 px-2 py-1 text-xs font-medium text-gray-700 dark:text-gray-400'>
-                                                                原嘟文
-                                                            </span>
-                                                        </Link>
+                                                            {mastTweet.replies_count !==
+                                                                0 && (
+                                                                <span className='inline-flex items-center rounded-md bg-blue-50 dark:bg-blue-400/10 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-400'>
+                                                                    {
+                                                                        mastTweet.replies_count
+                                                                    }{' '}
+                                                                    条评论
+                                                                </span>
+                                                            )}
+                                                            {mastTweet.favourites_count !==
+                                                                0 && (
+                                                                <span className='inline-flex items-center rounded-md bg-purple-50 dark:bg-purple-400/10 px-2 py-1 text-xs font-medium text-purple-700 dark:text-purple-400'>
+                                                                    {
+                                                                        mastTweet.favourites_count
+                                                                    }{' '}
+                                                                    个赞
+                                                                </span>
+                                                            )}
+                                                            <Link
+                                                                href={
+                                                                    mastTweet.url
+                                                                }
+                                                                target='_blank'
+                                                            >
+                                                                <span className='inline-flex items-center rounded-md bg-gray-50 dark:bg-gray-400/10 px-2 py-1 text-xs font-medium text-gray-700 dark:text-gray-400'>
+                                                                    原嘟文
+                                                                </span>
+                                                            </Link>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            ),
+                                                ),
+                                        )
                                     )}
                                 </div>
                             </div>
