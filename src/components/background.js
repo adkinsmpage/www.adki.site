@@ -1,6 +1,18 @@
 'use client'
 
+import { useEffect } from 'react'
+
 export default function Background() {
+    useEffect(
+        () =>
+            console.log(
+                `%c Author By Adkinsm %c https://github.com/adkinsmpage/www.adki.site`,
+                'background: #35495e; padding: 4px; border-radius: 3px 0 0 3px; color: #fff',
+                'background: #41b883; padding: 4px; border-radius: 0 3px 3px 0; color: #fff',
+            ),
+        [],
+    )
+
     return (
         <div className='relative isolate px-6 pt-14 lg:px-8 -z-10'>
             <div className='fixed isolate px-6 pt-14 lg:px-8'>
