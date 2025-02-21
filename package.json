@@ -39,7 +39,8 @@
     "to-vfile": "^8.0.0",
     "unified": "^11.0.5",
     "valtio": "^1.13.2",
-    "vfile-matter": "^5.0.0"
+    "vfile-matter": "^5.0.0",
+    "@waline/client": "3.5.2"
   },
   "devDependencies": {
     "@shikijs/rehype": "^1.9.1",
