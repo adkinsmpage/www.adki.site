@@ -5,6 +5,7 @@ import Providers from './providers'
 import HeaderNav from '@/components/header/Header'
 import Background from '@/components/background'
 import Fireworks from '@/components/fireworks'
+import { Footer } from '@/components/footer/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
                     <Background />
                     <div id='root'>{children}</div>
                     <Fireworks />
+                    <Footer />
                 </Providers>
             </body>
         </html>
