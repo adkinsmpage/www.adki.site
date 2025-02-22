@@ -23,6 +23,10 @@ export const Footer = () => {
                             <Link href='/rss' target='_blank'>
                                 RSS
                             </Link>
+                            <Divider />
+                            <Link href='/sitemap' target='_blank'>
+                                站点地图
+                            </Link>
                         </p>
                         <div>
                             如无特殊声明，本站内容均为站长{' '}
