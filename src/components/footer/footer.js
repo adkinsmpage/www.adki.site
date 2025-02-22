@@ -19,11 +19,18 @@ export const Footer = () => {
                             <span className='mt-3 block md:mt-0 md:inline'>
                                 {config.global.description}
                             </span>
+                            <Divider />
+                            <Link href='/rss' target='_blank'>
+                                RSS
+                            </Link>
                         </p>
                         <div>
                             如无特殊声明，本站内容均为站长{' '}
                             {config.global.author} 原创，且采用{' '}
-                            <Link href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>
+                            <Link
+                                target='_blank'
+                                href='http://creativecommons.org/licenses/by-nc-sa/4.0/'
+                            >
                                 CC BY-NS-SA 4.0 协议
                             </Link>
                             进行公开。
@@ -32,6 +39,7 @@ export const Footer = () => {
                             <span className='my-3 block md:my-0 md:inline'>
                                 Powered by{' '}
                                 <Link
+                                    target='_blank'
                                     className='hover-link link'
                                     href='https://github.com/adkinsmpage/www.adki.site'
                                 >

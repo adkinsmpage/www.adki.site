@@ -3,6 +3,7 @@ const config = {
         title: 'Adkinsm Home',
         author: 'Adkinsm',
         description: 'A Student from China',
+        url: "https://www.adkinsm.asia",
         nav: [
             { name: 'Home', link: '/' },
             { name: 'Posts', link: '/posts' },
