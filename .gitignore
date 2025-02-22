@@ -8,6 +8,9 @@
 /yarn.lock
 /.pnp.loader.mjs
 
+# yarn cache
+.yarn/cache
+
 # testing
 /coverage
 
