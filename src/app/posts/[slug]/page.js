@@ -5,7 +5,7 @@ import '@/assets/css/markdown.css'
 import dayjs from 'dayjs'
 import { getPostInfo, getPosts } from '@/utils/posts'
 import { notFound } from 'next/navigation'
-import { Waline } from '@/components/comments/waline'
+// import { Waline } from '@/components/comments/waline'
 import config from 'configJS'
 import { htmlToText } from '@/utils/htmlParser'
 import { TOC } from '@/components/post/toc'
@@ -52,7 +52,7 @@ export default async function Page({ params }) {
                     dangerouslySetInnerHTML={{ __html: post.content }}
                 />
 
-                {config.comments.waline.enable && <Waline />}
+                {/* {config.comments.waline.enable && <Waline />} */}
             </article>
         </div>
     )
