@@ -4,6 +4,7 @@ const config = {
         author: 'Adkinsm',
         description: 'A Student from China',
         url: "https://www.adkinsm.asia",
+        keywords: ['Adkinsm', 'Adkimsm', 'Adkict', 'Blog', 'Prefect', 'Home'],
         nav: [
             { name: 'Home', link: '/' },
             { name: 'Posts', link: '/posts' },

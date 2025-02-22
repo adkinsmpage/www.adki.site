@@ -4,6 +4,15 @@ import Link from 'next/link'
 import { getPosts } from '@/utils/posts'
 import config from 'configJS'
 
+export const metadata = {
+    title: `Blogs | ${config.global.title}`,
+    description: config.posts.description,
+    generator: config.global.author,
+    referrer: 'origin-when-cross-origin',
+    keywords: config.global.keywords,
+    authors: [{ name: config.global.author, url: config.global.url }],
+}
+
 export default async function Page() {
     const data = await getPosts()
 

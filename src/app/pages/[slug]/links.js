@@ -1,5 +1,16 @@
+import config from 'configJS'
+
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
+}
+
+export const metadata = {
+    title: `友链 | ${config.global.title}`,
+    description: config.posts.description,
+    generator: config.global.author,
+    referrer: 'origin-when-cross-origin',
+    keywords: config.global.keywords,
+    authors: [{ name: config.global.author, url: config.global.url }],
 }
 
 export default function (props) {

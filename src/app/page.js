@@ -9,6 +9,15 @@ const TypewriterEffect = dynamic(() => import('@/components/typeWriter'), {
     ssr: false,
 })
 
+export const metadata = {
+    title: `Home | ${config.global.title}`,
+    description: config.global.description,
+    generator: config.global.author,
+    referrer: 'origin-when-cross-origin',
+    keywords: config.global.keywords,
+    authors: [{ name: config.global.author, url: config.global.url }],
+}
+
 async function getHitokoto() {
     try {
         const response = await fetch('https://v1.hitokoto.cn', {

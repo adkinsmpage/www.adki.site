@@ -10,6 +10,15 @@ function findUrlByShortcode(array, shortcode) {
     return item ? item.url : null
 }
 
+export const metadata = {
+    title: `Tweets | ${config.global.title}`,
+    description: config.posts.description,
+    generator: config.global.author,
+    referrer: 'origin-when-cross-origin',
+    keywords: config.global.keywords,
+    authors: [{ name: config.global.author, url: config.global.url }],
+}
+
 function replaceEmojisWithImages(article, emojis) {
     const regex = /:\w+:/g
     return article.replace(regex, match => {
