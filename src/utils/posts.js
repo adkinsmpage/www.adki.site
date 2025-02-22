@@ -9,8 +9,52 @@ import rehypeShiki from '@shikijs/rehype'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkGfm from 'remark-gfm'
 import remarkFrontmatterYaml from '@/utils/remark/remarkFrontmatter'
-import rehypeTOC from '@jsdevtools/rehype-toc'
 import rehypeSlug from 'rehype-slug'
+import { visit } from 'unist-util-visit'
+import { toString } from 'mdast-util-to-string'
+
+// 新增TOC提取插件
+const extractTOC = () => (tree, file) => {
+    const headings = []
+    visit(tree, 'element', node => {
+        if (/^h[1-6]$/.test(node.tagName)) {
+            headings.push({
+                depth: parseInt(node.tagName.replace('h', '')),
+                text: toString(node),
+                id: node.properties.id,
+            })
+        }
+    })
+    file.data.toc = generateTOCStructure(headings) // 结构化处理
+}
+
+// 生成嵌套目录结构
+const generateTOCStructure = headings => {
+    const toc = []
+    const stack = []
+    let lastDepth = 0
+
+    headings.forEach(h => {
+        while (h.depth < lastDepth) {
+            stack.pop()
+            lastDepth--
+        }
+
+        const node = { ...h, children: [] }
+        if (stack.length === 0) {
+            toc.push(node)
+        } else {
+            stack[stack.length - 1].children.push(node)
+        }
+
+        if (h.depth > lastDepth) {
+            stack.push(node)
+            lastDepth = h.depth
+        }
+    })
+
+    return toc
+}
 
 const render = await unified()
     .use(remarkParse)
@@ -25,14 +69,7 @@ const render = await unified()
         },
     })
     .use(rehypeSlug)
-    .use(rehypeTOC, {
-        headings: ['h1', 'h2'], // Only include <h1> and <h2> headings in the TOC
-        cssClasses: {
-            toc: 'toc hidden', // Change the CSS class for the TOC
-            list: 'px-8 leading-6 fixed z-20 top-[3.8125rem] bottom-0 left-0 w-[19.5rem] py-10 overflow-y-auto',
-            link: 'block py-1 font-medium', // Change the CSS class for links in the TOC
-        },
-    })
+    .use(extractTOC)
     .use(rehypeStringify)
 
 export async function getPosts(type = 'posts') {
@@ -57,6 +94,7 @@ export async function getPosts(type = 'posts') {
 
         return fileDetails
     } catch (err) {
+        console.error(err)
         return false
     }
 }
@@ -71,10 +109,16 @@ export const getPostInfo = async (slug, type = 'posts') => {
             ),
             'utf8',
         )
+        const processor = render()
 
-        const content = await render.process(postMarkdown)
+        // 分离处理流程
+        const content = await processor.process(postMarkdown)
 
-        return content
+        return {
+            content: String(content),
+            toc: content.data.toc || [],
+            data: content.data.matter,
+        }
     } catch {
         return false
     }

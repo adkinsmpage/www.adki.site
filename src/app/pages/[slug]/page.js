@@ -9,6 +9,7 @@ import { notFound } from 'next/navigation'
 import config from 'configJS'
 import { Waline } from '@/components/comments/waline'
 import { htmlToText } from '@/utils/htmlParser'
+import { TOC } from '@/components/post/toc' // 新增TOC组件导入
 
 const getCachedPage = cache(async slug => {
     const post = await getPostInfo(slug, 'pages')
@@ -27,9 +28,9 @@ export async function generateMetadata({ params }) {
     const post = await getCachedPage(params.slug)
 
     return {
-        title: `${post.data.matter.title} | ${config.global.siteName}`,
-        description: htmlToText(String(post)).slice(0, 160),
-        keywords: post.data.matter.tags?.join(',') || config.global.keywords,
+        title: `${post.data.title} | ${config.global.siteName}`,
+        description: htmlToText(post.content).slice(0, 160), // 修改为使用post.content
+        keywords: post.data.tags?.join(',') || config.global.keywords,
         alternates: {
             canonical: `${config.global.url}/${params.slug}`,
         },
@@ -40,33 +41,34 @@ export default async function Page({ params }) {
     const post = await getCachedPage(params.slug)
 
     return (
-        <div className='mx-auto relative isolate overflow-hidden py-12 sm:py-12 lg:overflow-visible px-7 flex items-center flex-col'>
-            <article className='w-full max-w-3xl'>
-                <header className='pt-6 pb-6 mb-0'>
-                    <h1 className='mb-8 text-3xl font-extrabold leading-9 text-gray-900 dark:text-white sm:text-4xl sm:leading-10 md:text-5xl md:leading-14'>
-                        {post.data.matter.title}
+        <div className='flex flex-col lg:flex-row gap-8 max-w-7xl mx-auto px-4'>
+            {post.toc ? <TOC toc={post.toc} /> : null}
+
+            <article className='flex-1 prose dark:prose-invert max-w-3xl'>
+                <header className='mb-12'>
+                    <h1 className='text-4xl font-bold text-gray-900 dark:text-white'>
+                        {post.data.title}
                     </h1>
                     <time
-                        dateTime={dayjs(post.data.matter.date).format(
-                            'YYYY-MM-DD',
-                        )}
-                        className='opacity-50 !-mt-6 slide-enter-50'
+                        dateTime={dayjs(post.data.date).format('YYYY-MM-DD')}
+                        className='text-gray-500 mt-2 block'
                     >
-                        {dayjs(post.data.matter.date).format('YYYY-MM-DD')}
+                        {dayjs(post.data.date).format('YYYY-MM-DD')}
                     </time>
                 </header>
 
                 <section className='mb-8 w-full'>
                     {params.slug === 'links' ? (
                         <Links
-                            links={post.data.matter.links}
-                            postContent={post}
+                            className='markdown-body'
+                            links={post.data.links}
+                            postContent={post.content} // 修改为使用post.content
                         />
                     ) : (
                         <div
-                            className='markdown-body text-base leading-7 text-gray-700 dark:text-slate-300 px-0'
-                            dangerouslySetInnerHTML={{ __html: String(post) }}
-                            itemProp='articleBody' // 添加结构化数据
+                            className='markdown-body'
+                            dangerouslySetInnerHTML={{ __html: post.content }} // 修改为使用post.content
+                            itemProp='articleBody'
                         />
                     )}
                 </section>

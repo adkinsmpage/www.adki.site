@@ -8,6 +8,7 @@ import { notFound } from 'next/navigation'
 import { Waline } from '@/components/comments/waline'
 import config from 'configJS'
 import { htmlToText } from '@/utils/htmlParser'
+import { TOC } from '@/components/post/toc'
 
 const getCachedPost = cache(async slug => {
     const post = await getPostInfo(slug)
@@ -19,42 +20,40 @@ export async function generateMetadata({ params }) {
     const post = await getCachedPost(params.slug)
 
     return {
-        title: `${post.data.matter.title} | ${config.global.title}`,
+        title: `${post.data.title} | ${config.global.title}`,
         description: htmlToText(post.toString()).slice(0, 150),
         generator: config.global.author,
         referrer: 'origin-when-cross-origin',
-        keywords: post.data.matter.tags,
+        keywords: post.data.tags,
         authors: [{ name: config.global.author, url: config.global.url }],
     }
 }
 
+// 修改页面结构
 export default async function Page({ params }) {
     const post = await getCachedPost(params.slug)
 
     return (
-        <div className='mx-auto relative isolate overflow-hidden py-12 sm:py-12 lg:overflow-visible px-7 flex items-center flex-col'>
-            <div>
-                <div className='pt-6 pb-6 mb-0'>
-                    <h1
-                        data-cursor='block'
-                        className='mb-8 text-3xl font-extrabold leading-9 text-gray-900 dark:text-white sm:text-4xl sm:leading-10 md:text-5xl md:leading-14'
-                    >
-                        {post.data.matter.title}
-                    </h1>
-                    <time className='opacity-50 !-mt-6 slide-enter-50'>
-                        {dayjs(post.data.matter.date).format('YYYY-MM-DD')}
+        <div className='flex justify-center flex-col lg:flex-row gap-8 max-w-7xl mx-auto px-4'>
+            {/* TOC侧边栏 */}
+            {post.toc ? <TOC toc={post.toc} /> : null}
+
+            {/* 文章主体 */}
+            <article className='flex-1 prose dark:prose-invert max-w-3xl'>
+                <header className='mb-12'>
+                    <h1 className='text-4xl font-bold'>{post.data.title}</h1>
+                    <time className='text-gray-500 mt-2 block'>
+                        {dayjs(post.data.date).format('YYYY-MM-DD')}
                     </time>
-                </div>
-                <div className='mb-8 w-full'>
-                    <div>
-                        <div
-                            className='markdown-body text-base leading-7 text-gray-700 dark:text-slate-300 px-0'
-                            dangerouslySetInnerHTML={{ __html: String(post) }}
-                        ></div>
-                        {config.comments.waline.enable && <Waline />}
-                    </div>
-                </div>
-            </div>
+                </header>
+
+                <section
+                    className='markdown-body'
+                    dangerouslySetInnerHTML={{ __html: post.content }}
+                />
+
+                {config.comments.waline.enable && <Waline />}
+            </article>
         </div>
     )
 }

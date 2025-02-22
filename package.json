@@ -16,7 +16,6 @@
     "@fancyapps/ui": "^5.0.36",
     "@fontsource/noto-color-emoji": "^5.1.1",
     "@headlessui/react": "^2.1.1",
-    "@jsdevtools/rehype-toc": "^3.0.2",
     "@mdx-js/loader": "^3.0.1",
     "@mdx-js/react": "^3.0.1",
     "@next/mdx": "^14.2.4",
@@ -26,6 +25,7 @@
     "dayjs": "^1.11.10",
     "fast-xml-parser": "^5.0.6",
     "framer-motion": "^11.2.12",
+    "mdast-util-to-string": "^4.0.0",
     "next": "14.1.0",
     "next13-progressbar": "^1.2.1",
     "react": "^18",
@@ -41,6 +41,7 @@
     "tailwind-merge": "^2.3.0",
     "to-vfile": "^8.0.0",
     "unified": "^11.0.5",
+    "unist-util-visit": "^5.0.0",
     "valtio": "^1.13.2",
     "vfile-matter": "^5.0.0"
   },

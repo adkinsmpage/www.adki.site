@@ -22,7 +22,7 @@ export async function GET() {
                     const postDetail = await getPostInfo(postSlug)
 
                     feed.item({
-                        title: postDetail.data.matter.title,
+                        title: postDetail.data.title,
                         guid: postSlug,
                         url: `${config.global.url}/posts/${postSlug}`,
                         categories: post.frontmatter.categories,
