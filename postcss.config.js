@@ -1,6 +1,16 @@
 module.exports = {
   plugins: {
-    'tailwindcss': {},
-    'autoprefixer': {},
-  }
+    'postcss-import': {},
+    'tailwindcss/nesting': {},
+    tailwindcss: {
+      theme: {
+        extend: {
+          maxWidth: {
+            '7xl': '1280px',
+          }
+        }
+      }
+    },
+    autoprefixer: {},
+  },
 };

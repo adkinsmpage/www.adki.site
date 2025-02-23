@@ -6,12 +6,7 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {
-    extend: {
-      maxWidth: {
-        '7xl': '1280px',
-      }
-    }
-  },
   plugins: [],
+  theme: {},
+  variants: {},
 };
