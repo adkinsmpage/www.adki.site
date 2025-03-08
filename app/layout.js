@@ -1,15 +1,27 @@
+'use client'
+
 import { Footer } from "@/components/footer";
 import "./globals.css";
 import { NavBar } from "@/components/ui/tubelight-navbar"
-
-export const metadata = {
-  title: "Adkinsm",
-  description: "Adkinsm Home",
-};
+import { useEffect } from 'react';
+import { ThemeService } from '@/lib/theme';
+import { uiState } from "@/lib/state";
 
 export default function RootLayout({ children }) {
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      uiState.theme.systemPreference =
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+    }
+    const cleanup = ThemeService.initSystemListener();
+    ThemeService.applyThemeToDOM();
+    return cleanup;
+  }, []);
+
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`antialiased select-none bg-white dark:bg-neutral-950`}
       >
@@ -23,7 +35,7 @@ export default function RootLayout({ children }) {
         } />
         <div className="w-full">
           <div className="box-border min-w-[200px] max-w-3xl mx-auto">
-            { children }
+            {children}
           </div>
         </div>
         <Footer />

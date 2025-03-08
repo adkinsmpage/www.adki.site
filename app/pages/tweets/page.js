@@ -1,4 +1,4 @@
-import 'star-markdown-css'
+import 'star-markdown-css/dist/yun/yun-markdown.min.css'
 import Fancybox from '@/components/fancybox'
 import dayjs from 'dayjs'
 import Link from 'next/link'

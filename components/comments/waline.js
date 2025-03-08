@@ -13,6 +13,7 @@ export const Waline = props => {
             ...props,
             serverURL: "https://talk-blog.vercel.app/",
             el: containerRef.current,
+            dark: "html.dark"
         })
 
         return () => walineInstanceRef.current?.destroy()
