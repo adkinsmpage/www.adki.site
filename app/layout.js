@@ -17,6 +17,7 @@ export default function RootLayout({ children }) {
           { name: 'Home', url: '/' },
           { name: 'Blogs', url: '/posts' },
           { name: 'Tweets', url: '/pages/tweets' },
+          { name: 'Links', url: '/pages/links' },
           { name: 'About', url: '/pages/about' },
         ]
         } />
