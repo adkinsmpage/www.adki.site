@@ -11,7 +11,7 @@ export const Waline = props => {
     useEffect(() => {
         walineInstanceRef.current = init({
             ...props,
-            serverURL: "https://talk-blog.vercel.app/",
+            serverURL: "https://comments.adkinsm.asia/",
             el: containerRef.current,
             dark: "html.dark"
         })
