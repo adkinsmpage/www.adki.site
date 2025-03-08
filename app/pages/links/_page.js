@@ -4,7 +4,7 @@ import AnimatedBackground from '@/components/ui/animated-background';
 
 export function AnimatedCardBackgroundHover({ items }) {
     return (
-        <div className='grid grid-cols-1 p-10 md:grid-cols-2'>
+        <div className='grid grid-cols-1 md:p-10 md:grid-cols-2'>
             <AnimatedBackground
                 className='rounded-lg bg-zinc-100 dark:bg-zinc-800 gap-5'
                 transition={{
@@ -15,7 +15,7 @@ export function AnimatedCardBackgroundHover({ items }) {
                 enableHover
             >
                 {items.map((item, index) => (
-                    <div className='group m-5 p-5' key={index} onClick={() => { window.open(item.link) }} data-id={`card-${index}`}>
+                    <div className='group my-5 md:m-5 md:p-5' key={index} onClick={() => { window.open(item.link) }} data-id={`card-${index}`}>
                         <a
                             href={item.link}
                             className="w-full flex relative transition-all duration-300 overflow-hidden items-center gap-5 rounded-md outline-none"
