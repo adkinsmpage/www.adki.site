@@ -25,7 +25,7 @@ export function NavBar({
   return (
     <div
       className={cn(
-        "fixed sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6",
+        "fixed left-1/2 -translate-x-1/2 z-50 mb-6 pt-6",
         className
       )}>
       <div
@@ -39,7 +39,7 @@ export function NavBar({
               key={item.name}
               href={item.url}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
+                "relative cursor-pointer text-sm font-semibold px-3 md:px-6 py-2 rounded-full transition-colors",
                 "text-foreground/80 hover:text-primary",
                 ((item.url === "/posts" && isPost) || isActive) && "bg-muted text-primary"
               )}>
