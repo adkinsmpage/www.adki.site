@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState, useRef } from 'react'
+import Fade from '../animation/fade'
 
 export const TableOfContents = () => {
     const [headings, setHeadings] = useState([])
@@ -53,7 +54,7 @@ export const TableOfContents = () => {
             const itemTop = activeItem.offsetTop
             const itemHeight = activeItem.clientHeight
             const scrollTop = tocContainer.scrollTop
-            
+
             // 如果活动项不在可视区域内，滚动到合适的位置
             if (itemTop < scrollTop || itemTop + itemHeight > scrollTop + containerHeight) {
                 tocContainer.scrollTo({
@@ -64,42 +65,47 @@ export const TableOfContents = () => {
         }
     }, [activeId])
 
+    if (headings.length === 0) {
+        return null
+    }
+
     return (
-        <nav className="hidden lg:block">
-            <div 
-                ref={tocRef}
-                className="fixed top-12 w-full max-h-[calc(100vh-9rem)] overflow-y-auto p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent"
-            >
-                <h4 className="mb-3 text-sm font-semibold">目录</h4>
-                <ul className="space-y-2 text-sm">
-                    {headings.map(heading => (
-                        <li
-                            key={heading.id}
-                            ref={heading.id === activeId ? activeItemRef : null}
-                            style={{
-                                paddingLeft: `${(heading.level - 1) * 1}rem`
-                            }}
-                        >
-                            <a
-                                href={`#${heading.id}`}
-                                className={`block truncate py-1 transition-all duration-200 ${
-                                    activeId === heading.id
-                                        ? 'text-blue-500 dark:text-blue-400 translate-x-1 font-medium'
-                                        : 'text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300'
-                                }`}
-                                onClick={(e) => {
-                                    e.preventDefault()
-                                    document.querySelector(`#${heading.id}`).scrollIntoView({
-                                        behavior: 'smooth'
-                                    })
+        <Fade>
+            <nav className="hidden lg:block">
+                <div
+                    ref={tocRef}
+                    className="fixed top-36 w-full max-h-[calc(100vh-9rem)] overflow-y-auto p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent"
+                >
+                    <h4 className="mb-3 text-sm font-semibold text-gray-900 dark:text-gray-100">目录</h4>
+                    <ul className="space-y-2 text-sm">
+                        {headings.map(heading => (
+                            <li
+                                key={heading.id}
+                                ref={heading.id === activeId ? activeItemRef : null}
+                                style={{
+                                    paddingLeft: `${(heading.level - 1) * 1}rem`
                                 }}
                             >
-                                {heading.text}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </nav>
+                                <a
+                                    href={`#${heading.id}`}
+                                    className={`block truncate py-1 transition-all duration-200 ${activeId === heading.id
+                                            ? 'text-blue-500 dark:text-blue-400 translate-x-1 font-medium'
+                                            : 'text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300'
+                                        }`}
+                                    onClick={(e) => {
+                                        e.preventDefault()
+                                        document.querySelector(`#${heading.id}`).scrollIntoView({
+                                            behavior: 'smooth'
+                                        })
+                                    }}
+                                >
+                                    {heading.text}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </nav>
+        </Fade>
     )
 }
