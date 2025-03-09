@@ -116,7 +116,7 @@ async function fetchEmojis() {
 export const revalidate = 30
 
 export async function GET(request, { params }) {
-  const { type } = params
+  const { type } = await params
   const { searchParams } = new URL(request.url)
   
   // 参数验证
