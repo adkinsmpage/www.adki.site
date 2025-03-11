@@ -10,6 +10,11 @@ import { getAllPosts } from '@/lib/posts'
 import Link from "next/link";
 import Fade from '@/components/animation/fade'
 
+export const metadata = {
+  title: '博客文章 | Adkins的个人网站',
+  description: '探索最新的技术趋势、开发技巧和最佳实践',
+}
+
 const Blog7 = async () => {
     const posts = await getAllPosts()
     return (

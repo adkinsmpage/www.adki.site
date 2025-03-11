@@ -17,6 +17,21 @@ export async function generateStaticParams() {
   return slugs.map(slug => ({ slug: slug.slug }))
 }
 
+export async function generateMetadata({ params }) {
+  try {
+    const { frontmatter } = await compileMDX(params.slug)
+    return {
+      title: `${frontmatter.title} | Adkins的个人网站`,
+      description: frontmatter.excerpt || frontmatter.description || `阅读文章：${frontmatter.title}`,
+    }
+  } catch (error) {
+    return {
+      title: '文章未找到 | Adkins的个人网站',
+      description: '抱歉，您请求的文章不存在。',
+    }
+  }
+}
+
 export default async function PostPage({ params }) {
   const { slug } = await params
   try {

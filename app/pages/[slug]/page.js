@@ -12,6 +12,21 @@ import { TableOfContents } from '@/components/toc'
 
 export const dynamicParams = false // 禁用动态路由生成
 
+export async function generateMetadata({ params }) {
+  try {
+    const { frontmatter } = await compileMDX(params.slug, "pages")
+    return {
+      title: `${frontmatter.title} | Adkins的个人网站`,
+      description: frontmatter.excerpt || frontmatter.description || `阅读页面：${frontmatter.title}`,
+    }
+  } catch (error) {
+    return {
+      title: '页面未找到 | Adkins的个人网站',
+      description: '抱歉，您请求的页面不存在。',
+    }
+  }
+}
+
 export async function generateStaticParams() {
   // 动态获取所有文章slug（需实现getAllPostSlugs）
   const slugs = await getAllPostSlugs("pages")
