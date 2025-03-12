@@ -21,31 +21,31 @@ import { getAllPosts } from '@/lib/posts'
                  'http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd',
              url: [
                 {
-                    loc: "htts://www.adkinsm.asia",
+                    loc: "https://www.adkinsm.asia",
                     lastmod: new Date().toISOString(),
                     changefreq: 'daily',
                     priority: '1.0',
                 },
                 {
-                    loc: "htts://www.adkinsm.asia/posts",
+                    loc: "https://www.adkinsm.asia/posts",
                     lastmod: new Date().toISOString(),
                     changefreq: 'weekly',
                     priority: '1.0',
                 },
                 {
-                    loc: "htts://www.adkinsm.asia/pages/tweets",
+                    loc: "https://www.adkinsm.asia/pages/tweets",
                     lastmod: new Date().toISOString(),
                     changefreq: 'daily',
                     priority: '1.0',
                 },
                  ...pages.map(path => ({
-                     loc: `htts://www.adkinsm.asia/pages/${path.slug}`,
+                     loc: `https://www.adkinsm.asia/pages/${path.slug}`,
                      lastmod: new Date().toISOString(),
                      changefreq: 'monthly',
                      priority: '0.8',
                  })),
                  ...posts.map(post => ({
-                     loc: `htts://www.adkinsm.asia/posts/${post.slug}`,
+                     loc: `https://www.adkinsm.asia/posts/${post.slug}`,
                      lastmod: new Date(post.date).toISOString(),
                      changefreq: 'weekly',
                      priority: '0.9',

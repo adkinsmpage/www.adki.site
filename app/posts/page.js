@@ -15,7 +15,7 @@ export const metadata = {
   description: '探索最新的技术趋势、开发技巧和最佳实践',
 }
 
-const Blog7 = async () => {
+const BlogPage = async () => {
     const posts = await getAllPosts()
     return (
         <section className="py-32">
@@ -76,4 +76,4 @@ const Blog7 = async () => {
     );
 };
 
-export default Blog7
+export default BlogPage
