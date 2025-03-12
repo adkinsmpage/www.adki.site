@@ -4,11 +4,6 @@ import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link";
 
-export const metadata = {
-  title: '页面未找到 | Adkins的个人网站',
-  description: '抱歉，您请求的页面不存在。',
-}
-
 export function Illustration(props) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 362 145" {...props}>
