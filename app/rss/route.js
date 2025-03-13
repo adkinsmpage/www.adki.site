@@ -1,41 +1,38 @@
-import RSS from 'rss'
 import { getAllPosts } from '@/lib/posts'
 
-export async function GET() {
-    const feed = new RSS({
-        title: "Adkinsm Home",
-        description: "人生得意须尽欢",
-        site_url: "https://www.adkinsm.asia",
-        feed_url: `https://www.adkinsm.asia/rss`,
-        language: 'zh-CN',
-    })
+export const dynamic = 'force-static'
 
+export async function GET() {
     try {
         const posts = await getAllPosts("posts", "rss")
+        const now = new Date().toISOString()
 
-        await Promise.all(
-            posts.map(async post => {
-                try {
-                    const postSlug = post.slug
-                    feed.item({
-                        title: post.title,
-                        guid: postSlug,
-                        url: `https://www.adkinsm.asia/posts/${postSlug}`,
-                        categories: post.category,
-                        description: `${post.excerpt} <p>访问 <a href="https://www.adkinsm.asia/posts/${postSlug}" target="_blank">https://www.adkinsm.asia/posts/${postSlug}</a> 阅读全文。</p>`,
-                        date: post.date,
-                    })
-                } catch (error) {
-                    console.error(`Error processing post ${post.file}:`, error)
-                }
-            }),
-        )
+        const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Adkinsm Home</title>
+        <link>https://www.adkinsm.asia</link>
+        <description>人生得意须尽欢</description>
+        <language>zh-CN</language>
+        <lastBuildDate>${now}</lastBuildDate>
+        <atom:link href="https://www.adkinsm.asia/rss" rel="self" type="application/rss+xml" />
+        ${posts.map(post => `
+        <item>
+            <title><![CDATA[${post.title}]]></title>
+            <link>https://www.adkinsm.asia/posts/${post.slug}</link>
+            <guid>https://www.adkinsm.asia/posts/${post.slug}</guid>
+            <pubDate>${new Date(post.date).toUTCString()}</pubDate>
+            <description><![CDATA[${post.excerpt} <p>访问 <a href="https://www.adkinsm.asia/posts/${post.slug}" target="_blank">https://www.adkinsm.asia/posts/${post.slug}</a> 阅读全文。</p>]]></description>
+            ${post.category ? `<category>${post.category}</category>` : ''}
+        </item>`).join('')}
+    </channel>
+</rss>`
 
-        return new Response(feed.xml(), {
+        return new Response(rss, {
             headers: {
-                'content-type': 'application/xml',
-                'cache-control': 'public, max-age=3600',
-            },
+                'Content-Type': 'application/xml',
+                'Cache-Control': 'public, max-age=3600'
+            }
         })
     } catch (error) {
         console.error('RSS generation failed:', error)
