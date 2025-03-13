@@ -64,8 +64,20 @@ async function fetchTweets(searchParams) {
     const linkHeader = response.headers.get('Link')
     const hasMore = linkHeader?.includes('rel="next"') || false
 
+    // 只返回必要的字段，减少数据大小
     return {
-      data: tweets.filter(t => !t.in_reply_to_id),
+      data: tweets
+        .filter(t => !t.in_reply_to_id)
+        .map(t => ({
+          id: t.id,
+          content: t.content,
+          created_at: t.created_at,
+          url: t.url,
+          media_attachments: t.media_attachments?.map(m => ({
+            url: m.url,
+            preview_url: m.preview_url
+          }))
+        })),
       hasMore,
       timestamp: Date.now(),
       page: params.page,
@@ -97,10 +109,7 @@ async function fetchEmojis() {
         shortcode: e.shortcode,
         url: e.url.startsWith('/') 
           ? `https://o3o.ca${e.url}`
-          : e.url,
-        static_url: e.static_url.startsWith('/')
-          ? `https://o3o.ca${e.static_url}`
-          : e.static_url
+          : e.url
       })),
       timestamp: Date.now()
     }
@@ -113,7 +122,8 @@ async function fetchEmojis() {
   }
 }
 
-export const revalidate = 30
+// 减少缓存时间，降低内存占用
+export const revalidate = 15
 
 export async function GET(request, { params }) {
   const { type } = await params

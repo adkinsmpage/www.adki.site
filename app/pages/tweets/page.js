@@ -85,7 +85,7 @@ const Tweet = memo(({ tweet, emojis }) => {
                         <div className="grid grid-cols-2 gap-2 mt-2">
                             {tweet.media_attachments.map((img, i) => (
                                 <a
-                                    key={img.id}
+                                    key={`${tweet.id}-${i}`}
                                     href={img.url}
                                     data-fancybox={`gallery-${tweet.id}`}
                                     className="hover:opacity-80 transition-opacity"
