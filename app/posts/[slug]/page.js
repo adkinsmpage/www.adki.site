@@ -18,15 +18,16 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }) {
+  const { slug } = await params
   try {
-    const { frontmatter } = await compileMDX(params.slug)
+    const { frontmatter } = await compileMDX(slug)
     return {
-      title: `${frontmatter.title} | Adkins的个人网站`,
+      title: `${frontmatter.title} | Adkinsm Home`,
       description: frontmatter.excerpt || frontmatter.description || `阅读文章：${frontmatter.title}`,
     }
   } catch (error) {
     return {
-      title: '文章未找到 | Adkins的个人网站',
+      title: '文章未找到 | Adkinsm Home',
       description: '抱歉，您请求的文章不存在。',
     }
   }

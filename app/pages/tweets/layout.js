@@ -1,5 +1,5 @@
 export const metadata = {
-    title: 'Mastodon推文 | Adkins的个人网站',
+    title: 'Mastodon推文 | Adkinsm Home',
     description: '我的Mastodon动态和分享',
 }
 

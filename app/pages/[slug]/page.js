@@ -13,15 +13,16 @@ import { TableOfContents } from '@/components/toc'
 export const dynamicParams = false // 禁用动态路由生成
 
 export async function generateMetadata({ params }) {
+  const { slug } = await params
   try {
-    const { frontmatter } = await compileMDX(params.slug, "pages")
+    const { frontmatter } = await compileMDX(slug, "pages")
     return {
-      title: `${frontmatter.title} | Adkins的个人网站`,
+      title: `${frontmatter.title} | Adkinsm Home`,
       description: frontmatter.excerpt || frontmatter.description || `阅读页面：${frontmatter.title}`,
     }
   } catch (error) {
     return {
-      title: '页面未找到 | Adkins的个人网站',
+      title: '页面未找到 | Adkinsm Home',
       description: '抱歉，您请求的页面不存在。',
     }
   }

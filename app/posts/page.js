@@ -11,7 +11,7 @@ import Link from "next/link";
 import Fade from '@/components/animation/fade'
 
 export const metadata = {
-  title: '博客文章 | Adkins的个人网站',
+  title: '博客文章 | Adkinsm Home',
   description: '探索最新的技术趋势、开发技巧和最佳实践',
 }
 
