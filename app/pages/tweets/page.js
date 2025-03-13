@@ -25,6 +25,10 @@ const fetchTweets = async (page = 1) => {
             emojisRes.json()
         ])
 
+        if (tweetsData.error && emojisData.error) {
+            throw new Error(`${tweetsData.error} ${emojisData.error}`)
+        }
+
         return {
             tweets: tweetsData.data || [],
             emojis: emojisData.data || [],
@@ -44,7 +48,7 @@ const EmojiContent = memo(({ content, emojis }) => {
     )
 
     const parts = content.split(/(:[\w-]+:)/)
-    
+
     return parts.map((part, i) => {
         const emoji = emojiMap[part]
         return emoji ? (
@@ -130,11 +134,11 @@ export default function TweetsPage() {
 
     const loadMore = useCallback(async () => {
         if (!state.hasMore || state.isLoading) return
-        
+
         try {
             setState(prev => ({ ...prev, isLoading: true, error: null }))
             const data = await fetchTweets(state.page)
-            
+
             setState(prev => ({
                 ...prev,
                 tweets: [...prev.tweets, ...data.tweets],
@@ -162,7 +166,7 @@ export default function TweetsPage() {
             const scrollTop = window.scrollY || document.documentElement.scrollTop
             const scrollHeight = document.documentElement.scrollHeight
             const clientHeight = window.innerHeight || document.documentElement.clientHeight
-            
+
             if (scrollHeight - scrollTop <= clientHeight * 1.5) {
                 loadMore()
             }
@@ -172,7 +176,7 @@ export default function TweetsPage() {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [loadMore])
 
-    if (state.error && !state.tweets.length) {
+    if (state.error) {
         return (
             <div className="text-red-500 text-center flex flex-col items-center gap-2 p-6">
                 <AlertCircle className="w-8 h-8" />
@@ -187,40 +191,35 @@ export default function TweetsPage() {
         )
     }
 
-    return (
-        <div className="mx-auto px-4 sm:px-7 py-8 max-w-4xl min-h-screen">
-            <h1 className="text-4xl font-bold text-center mb-6 dark:text-white">
-                Mastodon推文
-            </h1>
-
-            {state.isLoading && !state.tweets.length ? (
-                <div className="space-y-8">
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                        <TextShimmerWave className="w-3/4 h-6 mb-4">加载中...</TextShimmerWave>
-                    </div>
+    return (<>
+        {state.isLoading && !state.tweets.length ? (
+            <div className="space-y-8">
+                <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+                    <TextShimmerWave className="w-3/4 h-6 mb-4">加载中...</TextShimmerWave>
                 </div>
-            ) : (
-                <Fade>
-                    <div>
-                        {state.tweets.map(tweet => (
-                            <Tweet
-                                key={tweet.id}
-                                tweet={tweet}
-                                emojis={state.emojis}
-                            />
-                        ))}
+            </div>
+        ) : (
+            <Fade>
+                <div>
+                    {state.tweets.map(tweet => (
+                        <Tweet
+                            key={tweet.id}
+                            tweet={tweet}
+                            emojis={state.emojis}
+                        />
+                    ))}
 
-                        {state.isLoading && (
-                            <div className="h-24 flex items-center justify-center">
-                                <div className="flex items-center gap-2 text-gray-500">
-                                    <div className="w-5 h-5 border-2 border-blue-500 rounded-full animate-spin" />
-                                    加载中...
-                                </div>
+                    {state.isLoading && (
+                        <div className="h-24 flex items-center justify-center">
+                            <div className="flex items-center gap-2 text-gray-500">
+                                <div className="w-5 h-5 border-2 border-blue-500 rounded-full animate-spin" />
+                                加载中...
                             </div>
-                        )}
-                    </div>
-                </Fade>
-            )}
-        </div>
+                        </div>
+                    )}
+                </div>
+            </Fade>
+        )}
+    </>
     )
 }
