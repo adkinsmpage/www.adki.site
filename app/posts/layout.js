@@ -1,4 +1,5 @@
 import { getAllPostSlugs } from '@/lib/posts'
+import ContentLayout from '@/components/posts/layout/ContentLayout'
 
 export async function generatePreloadLinks() {
   const slugs = await getAllPostSlugs()
@@ -9,7 +10,7 @@ export async function generatePreloadLinks() {
 }
 
 const Layout = ({ children }) => {
-    return <div className="max-w-3xl mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-0 mx-auto">{ children }</div>
+  return <ContentLayout>{children}</ContentLayout>
 }
 
 export default Layout
