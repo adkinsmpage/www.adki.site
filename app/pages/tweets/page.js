@@ -53,13 +53,13 @@ const EmojiContent = memo(({ content, emojis }) => {
         const emoji = emojiMap[part]
         return emoji ? (
             <img
-                key={i}
+                key={`i-${Math.random()}`}
                 className="inline-block h-6 w-6 align-text-bottom"
                 src={emoji.url}
                 alt={emoji.shortcode}
                 loading="lazy"
             />
-        ) : <div key={i} className='inline-block' dangerouslySetInnerHTML={{ __html: part }}></div>
+        ) : <div key={`i-${Math.random()}`} className='inline-block' dangerouslySetInnerHTML={{ __html: part }}></div>
     })
 })
 
@@ -201,9 +201,9 @@ export default function TweetsPage() {
         ) : (
             <Fade>
                 <div>
-                    {state.tweets.map(tweet => (
+                    {state.tweets.map((tweet, i) => (
                         <Tweet
-                            key={tweet.id}
+                            key={`${tweet.id}-${i}`}
                             tweet={tweet}
                             emojis={state.emojis}
                         />
