@@ -74,7 +74,7 @@ export const TableOfContents = () => {
             <nav className="hidden lg:block">
                 <div
                     ref={tocRef}
-                    className="fixed top-36 w-full max-h-[calc(100vh-9rem)] overflow-y-auto p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent"
+                    className="fixed top-36 w-full max-h-[calc(100vh-9rem)] overflow-y-auto p-4 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent"
                 >
                     <h4 className="mb-3 text-sm font-semibold text-gray-900 dark:text-gray-100">目录</h4>
                     <ul className="space-y-2 text-sm">
